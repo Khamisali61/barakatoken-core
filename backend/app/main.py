@@ -2,8 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from app.api.v1.endpoints import auth, assets, payments, admin, websocket
+from app.core.json_encoder import CustomJSONResponse
 
-app = FastAPI(title="BarakaToken API")
+app = FastAPI(
+    title="BarakaToken API",
+    default_response_class=CustomJSONResponse
+)
 
 app.add_middleware(
     CORSMiddleware,
