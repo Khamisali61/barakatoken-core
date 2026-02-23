@@ -17,9 +17,23 @@ def seed_db():
             hashed_password=get_password_hash("password123"),
             is_active=True,
             is_verified=True,
+            is_admin=False,
             wallet_address="0x1234567890123456789012345678901234567890"
         )
         db.add(test_user)
+
+    # Create an admin user
+    admin_user = db.query(User).filter(User.email == "admin@barakatoken.com").first()
+    if not admin_user:
+        admin_user = User(
+            full_name="Platform Admin",
+            email="admin@barakatoken.com",
+            hashed_password=get_password_hash("admin123"),
+            is_active=True,
+            is_verified=True,
+            is_admin=True
+        )
+        db.add(admin_user)
 
     # Create assets
     assets_data = [
@@ -36,7 +50,8 @@ def seed_db():
             "risk_level": "Low-Med",
             "image_url": "https://lh3.googleusercontent.com/aida-public/AB6AXuDRDRtd7I-eNIyDLFv8zIRYJi526Z5liZPFn26mMlhhwmZPR8Gdg9lS-vhFlhXclQq9568Cw7AYM21XRP8f0U8kpyQSg5g7Sa5t4eKdrlHfMUNtAR4Md9v-grpVtIgrVclRiP75l2H7tqsxvIAXbEZPA7pFUZy93dXD0Ouar8T1pe5HQhWsNs3wdx77MqUAE6K5URXA1RGLI8HPYIG_tMBJmF1uDL3E7arO-8BBIIa8q-D42Sf6LLkRnCh2oUMKxetdoa3s59lBxnw",
             "legal_doc_url": "https://barakatoken.com/docs/nairobi-green-housing-legal.pdf",
-            "shariah_cert_url": "https://barakatoken.com/docs/nairobi-green-housing-shariah.pdf"
+            "shariah_cert_url": "https://barakatoken.com/docs/nairobi-green-housing-shariah.pdf",
+            "status": "Active"
         },
         {
             "title": "Mombasa Solar Farm",
@@ -51,7 +66,8 @@ def seed_db():
             "risk_level": "Medium",
             "image_url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAWGly4_dI-rp9bYeAsCWTHpIcda3SaQLDhWi-RegJVZzPsIkO2iaGLcTY1AKYGwuj_8YSH8RO261Dj25bCfH192X1O2IbdWrN2EDnxz06iN7Zo3YVC3qNW2AOqOPVhqrbV7ZocL9maPzh5AHEXVXy0u17M7HiGh12sBIb2CzUK2EGFgEVP0fCvoT9K5QO1oucaVeoVddPPpaVrPnWHthmbfhOn5QLjJ3xPA7KO5bTI_Rs_FcdRDH9nimqn1rnybmZcZ8BwyeB3Adw",
             "legal_doc_url": "https://barakatoken.com/docs/mombasa-solar-farm-legal.pdf",
-            "shariah_cert_url": "https://barakatoken.com/docs/mombasa-solar-farm-shariah.pdf"
+            "shariah_cert_url": "https://barakatoken.com/docs/mombasa-solar-farm-shariah.pdf",
+            "status": "Draft"
         }
     ]
 

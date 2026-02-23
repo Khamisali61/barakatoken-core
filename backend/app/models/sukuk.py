@@ -18,4 +18,5 @@ class SukukAsset(Base):
     legal_doc_url = Column(String, nullable=True)
     shariah_cert_url = Column(String, nullable=True)
     image_url = Column(String, nullable=True)
-    status = Column(String, default="Active") # Active, Closed, Funded
+    status = Column(String, default="Draft") # Draft, Onboarded, Minted, Active
+    contract_address = Column(String, nullable=True)

@@ -18,4 +18,9 @@ class Settings(BaseSettings):
     MPESA_PASSKEY: str = os.getenv("MPESA_PASSKEY")
     MPESA_CALLBACK_URL: str = os.getenv("MPESA_CALLBACK_URL")
 
+    ADMIN_PRIVATE_KEY: str = os.getenv("ADMIN_PRIVATE_KEY")
+    POLYGON_AMOY_RPC_URL: str = os.getenv("POLYGON_AMOY_RPC_URL")
+
+    UPLOAD_DIR: str = "media"
+
 settings = Settings()
