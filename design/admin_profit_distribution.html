@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BarakaToken Admin | Profit Distribution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06f99c",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .emerald-glow {
+            box-shadow: 0 0 20px rgba(6, 249, 156, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 py-4">
+<div class="flex items-center justify-between max-w-md mx-auto">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-100">arrow_back</span>
+</button>
+<div class="text-center">
+<h1 class="text-sm font-bold uppercase tracking-widest text-primary">BarakaToken</h1>
+<p class="text-xs text-slate-400">Profit Engine</p>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-100">sync</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md mx-auto px-4 pb-32">
+<!-- Summary Dashboard Card -->
+<section class="mt-6 mb-8">
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<p class="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Total Pending Distribution</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold text-white tracking-tight">5,000,000</span>
+<span class="text-xl font-bold text-primary">KES</span>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-4 pt-4 border-t border-white/5">
+<div>
+<p class="text-[10px] text-slate-400 uppercase">Investors</p>
+<p class="text-lg font-bold text-white">4,500</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase">Status</p>
+<p class="text-sm font-bold flex items-center gap-1 text-primary">
+<span class="size-2 bg-primary rounded-full animate-pulse"></span>
+                                Shariah Verified
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search and List Header -->
+<section class="space-y-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-lg font-bold text-white">Payout Queue</h2>
+<span class="text-xs text-slate-400">Showing first 100</span>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-white/5 border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm text-white focus:ring-primary focus:border-primary placeholder:text-slate-500" placeholder="Search investor name or phone..." type="text"/>
+</div>
+<!-- Investor List -->
+<div class="space-y-3">
+<!-- Investor Row 1 -->
+<div class="glass-card rounded-xl p-4 flex items-center justify-between group active:scale-[0.98] transition-all">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white leading-none mb-1">Abdi Hassan</p>
+<p class="text-[10px] text-slate-400 font-mono">254712****89 • M-Pesa</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+1,250.00</p>
+<p class="text-[10px] text-slate-500">KES</p>
+</div>
+</div>
+<!-- Investor Row 2 -->
+<div class="glass-card rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white leading-none mb-1">Fatuma Wanjiku</p>
+<p class="text-[10px] text-slate-400 font-mono">254722****12 • M-Pesa</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+840.50</p>
+<p class="text-[10px] text-slate-500">KES</p>
+</div>
+</div>
+<!-- Investor Row 3 -->
+<div class="glass-card rounded-xl p-4 flex items-center justify-between opacity-80">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">person</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white leading-none mb-1">John Mutua</p>
+<p class="text-[10px] text-slate-400 font-mono">254701****56 • M-Pesa</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+3,120.00</p>
+<p class="text-[10px] text-slate-500">KES</p>
+</div>
+</div>
+<!-- Investor Row 4 -->
+<div class="glass-card rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white leading-none mb-1">Zahra Ali</p>
+<p class="text-[10px] text-slate-400 font-mono">254790****44 • M-Pesa</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+15,000.00</p>
+<p class="text-[10px] text-slate-500">KES</p>
+</div>
+</div>
+</div>
+<button class="w-full py-3 text-xs font-semibold text-slate-400 hover:text-primary transition-colors">
+                Load More Investors (4,400 remaining)
+            </button>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-dark/95 border-t border-white/5 backdrop-blur-xl z-50">
+<div class="max-w-md mx-auto space-y-4">
+<div class="flex items-center gap-2 px-2">
+<span class="material-symbols-outlined text-amber-500 size-4 text-xs">verified_user</span>
+<p class="text-[10px] text-slate-400">This action will trigger irreversible M-Pesa B2C disbursements via the API Gateway.</p>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-extrabold text-sm py-4 rounded-xl flex items-center justify-center gap-3 emerald-glow transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">rocket_launch</span>
+                EXECUTE PAYOUTS VIA API
+            </button>
+<!-- Mobile Navbar Replacement inside Engine Context -->
+<nav class="flex justify-around items-center pt-2">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold">Engine</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Sukuks</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Users</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Setup</span>
+</a>
+</nav>
+</div>
+</footer>
+</body></html>

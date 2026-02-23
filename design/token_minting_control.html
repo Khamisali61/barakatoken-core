@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Token Minting Control | BarakaToken</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#008f58",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-primary/20 px-4 py-4 flex items-center justify-between">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="text-center">
+<h1 class="text-sm font-bold tracking-tight uppercase text-primary/80">Banker Dashboard</h1>
+<p class="text-lg font-extrabold">Minting Control</p>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">security</span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto px-4 py-6 space-y-6">
+<!-- Asset Summary Card -->
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-5 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-bold bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wider">Active Sukuk</span>
+<h2 class="text-xl font-bold mt-2">Baraka Infrastructure Sukuk #042</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 font-medium">ID: BTK-INF-042-KEN</p>
+</div>
+<div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">account_balance</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2 border-t border-primary/10">
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Authorized Cap</p>
+<p class="text-lg font-bold text-primary">10,000,000 <span class="text-xs">BTK</span></p>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Circulating</p>
+<p class="text-lg font-bold">4,250,000 <span class="text-xs">BTK</span></p>
+</div>
+</div>
+</div>
+<!-- Shariah Approval Toggle -->
+<div class="bg-primary/10 border border-primary/30 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="font-bold text-sm">Shariah Compliance Approval</p>
+<p class="text-xs text-primary font-semibold">Certified by Fatwa Board</p>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-8 bg-slate-400 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<!-- Minting Form -->
+<div class="space-y-4">
+<h3 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest px-1">Issuance Parameters</h3>
+<div class="space-y-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-background-light dark:bg-background-dark px-2 text-[10px] font-extrabold text-primary uppercase">Token Supply to Mint</label>
+<div class="flex items-center border-2 border-primary/30 focus-within:border-primary rounded-xl overflow-hidden transition-colors">
+<input class="flex-1 bg-transparent border-none focus:ring-0 py-4 px-4 text-xl font-bold placeholder:text-slate-300 dark:placeholder:text-slate-700" placeholder="0.00" type="number" value="1000000"/>
+<span class="pr-4 font-bold text-slate-400">BTK</span>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-background-light dark:bg-background-dark px-2 text-[10px] font-extrabold text-primary uppercase">Maturity Date</label>
+<div class="flex items-center border-2 border-primary/30 focus-within:border-primary rounded-xl overflow-hidden transition-colors">
+<input class="flex-1 bg-transparent border-none focus:ring-0 py-4 px-4 text-lg font-bold text-slate-900 dark:text-slate-100" type="date" value="2029-12-31"/>
+<span class="pr-4 text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Network Info -->
+<div class="flex items-center gap-2 p-3 bg-slate-100 dark:bg-slate-800/50 rounded-lg">
+<img class="w-5 h-5 opacity-80" data-alt="Polygon network logo in purple and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYryfcSdatQQmShFaSV5C9oyGPKH-EybnBWfd2rs1NWBKgN0j1G1Yht14GJBZ1QQtKvR9QZcWI2grkAUwTmypEIgBngEptENoZJY9h7vwRqGhZi6Zkpo7XFit3_5ddBqgoO6nYcx_WQXHSlzorUfw9aZVGavgM7stgarXOamkgk5l6gPZqF2MzgUjHeDlLSIuSbR4i8fZeEm6cFeAXSIcsn_13x_C9bnXwhf-LfWfOqXXx0fee_FtAQlta87PawpDTYvuphKEIbyE"/>
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400">
+                Target Network: <span class="text-slate-900 dark:text-slate-100 font-bold">Polygon Mainnet</span>
+</p>
+<div class="ml-auto flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase text-primary">Connected</span>
+</div>
+</div>
+</main>
+<!-- Fixed Action Area -->
+<div class="p-4 space-y-3 bg-background-light dark:bg-background-dark border-t border-primary/10">
+<div class="flex justify-between items-center px-1">
+<span class="text-xs font-bold text-slate-500">Estimated Gas Fee</span>
+<span class="text-xs font-bold text-primary">~0.12 MATIC</span>
+</div>
+<!-- Sliding Confirmation Mockup -->
+<div class="relative group">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-extrabold py-5 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">token</span>
+                MINT TOKENS TO POLYGON
+            </button>
+<p class="text-center text-[10px] mt-3 font-bold text-slate-400 uppercase tracking-widest italic">
+                Requires FaceID / Biometric Confirmation
+            </p>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="flex justify-around items-center border-t border-primary/10 bg-background-light/90 dark:bg-background-dark/90 pb-8 pt-3 px-2 ios-blur">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="text-[10px] font-bold">Assets</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="text-[10px] font-bold">Minting</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</a>
+</nav>
+<!-- Floating Confirmation Overlay (Hidden in static) -->
+<!-- 
+    <div class="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 backdrop-blur-sm">
+        <div class="w-full max-w-md bg-white dark:bg-slate-900 rounded-t-[2rem] p-8 space-y-6 animate-slide-up">
+            <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto"></div>
+            <div class="text-center space-y-2">
+                <div class="w-20 h-20 bg-primary/10 text-primary rounded-full mx-auto flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-5xl">faceid</span>
+                </div>
+                <h3 class="text-2xl font-black">Confirm Issuance</h3>
+                <p class="text-slate-500">You are about to mint 1,000,000 BTK tokens. This action is irreversible on the blockchain.</p>
+            </div>
+            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl">
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm font-bold opacity-50 uppercase tracking-tight">Supply</span>
+                    <span class="text-sm font-black">1,000,000 BTK</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-sm font-bold opacity-50 uppercase tracking-tight">Network</span>
+                    <span class="text-sm font-black">Polygon Mainnet</span>
+                </div>
+            </div>
+            <button class="w-full bg-primary text-white py-5 rounded-2xl font-black shadow-xl">AUTHENTICATE & SIGN</button>
+            <button class="w-full py-2 text-slate-500 font-bold">Cancel</button>
+        </div>
+    </div> 
+    -->
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BarakaToken - Investor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#008f58",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0A0A0A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .donut-chart {
+            background: conic-gradient(
+                #008f58 0% 65%, 
+                #00d482 65% 100%
+            );
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen pb-24">
+<!-- Top Header -->
+<header class="flex items-center justify-between px-6 py-4 sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full border border-primary/30 p-0.5">
+<img alt="User Profile" class="rounded-full w-full h-full object-cover" data-alt="Investor profile picture circular avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBDnCh3-iqTfa8a3yZgbozRXuRKp4IzlI9f9aOlmAn9VidzRMfEiD6VEHrJN1dh1veOk42dEIgZxWSTWwJe6fXoJCiFU79nKXZ2lroLexaGvalMh3wh82u_nivxgoOExwh8bgnnBMFsR6zyOZyDJfeZbMqZQSUItwXwQiLs4YWch_xSz7bOtUneS9_W6gaq_S8xiDjRRCvVFi9EsjC1W0k-sEdH8in2LKZooCgNzVTK7jTSSr55xoGJjkLGEkWaEh-qAfF8vvlC3o"/>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Welcome back</p>
+<h2 class="text-sm font-bold">Ahmed Hassan</h2>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="size-10 flex items-center justify-center rounded-full glass-card">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-full glass-card relative">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full border-2 border-background-dark"></span>
+</button>
+</div>
+</header>
+<main class="px-6 space-y-6">
+<!-- Portfolio Hero Section -->
+<section class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-emerald-500/10 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative glass-card rounded-2xl p-6 overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<p class="text-sm font-medium text-slate-400">Total Portfolio Value</p>
+<div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-primary/10 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        +4.2%
+                    </div>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight mb-1">KES 1,250,000.00</h1>
+<p class="text-xs text-slate-500 mb-6">≈ 9,450.00 USD Equivalent</p>
+<div class="flex gap-3">
+<button class="flex-1 py-3 px-4 bg-primary text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                        Invest
+                    </button>
+<button class="flex-1 py-3 px-4 glass-card rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+                        Withdraw
+                    </button>
+</div>
+</div>
+</section>
+<!-- Zakat Alert Banner -->
+<section class="relative overflow-hidden rounded-xl bg-primary px-5 py-4 flex items-center justify-between">
+<div class="absolute right-0 top-0 h-full w-32 bg-white/10 skew-x-[-20deg] translate-x-12"></div>
+<div class="relative flex items-center gap-4">
+<div class="size-10 rounded-lg bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">volunteer_activism</span>
+</div>
+<div>
+<h3 class="text-sm font-bold text-white">Zakat Due</h3>
+<p class="text-xs text-white/80 font-medium">KES 31,250 ready for purification</p>
+</div>
+</div>
+<button class="relative bg-white text-primary px-4 py-2 rounded-lg text-xs font-bold shadow-lg">
+                Pay Now
+            </button>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="glass-card rounded-xl p-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-lg">token</span>
+<p class="text-xs font-semibold text-slate-400">Active Sukuks</p>
+</div>
+<h4 class="text-lg font-bold">12</h4>
+<p class="text-[10px] text-slate-500 mt-1">Across 3 industries</p>
+</div>
+<div class="glass-card rounded-xl p-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-emerald-400 text-lg">insights</span>
+<p class="text-xs font-semibold text-slate-400">Est. ROI (P.A)</p>
+</div>
+<h4 class="text-lg font-bold">14.5%</h4>
+<p class="text-[10px] text-slate-500 mt-1">Weighted average</p>
+</div>
+</section>
+<!-- Diversification Chart -->
+<section class="glass-card rounded-2xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-base">Sector Diversification</h3>
+<span class="material-symbols-outlined text-slate-500 text-lg">more_horiz</span>
+</div>
+<div class="flex items-center justify-center relative mb-6">
+<div class="size-48 rounded-full donut-chart flex items-center justify-center relative shadow-[0_0_40px_rgba(0,143,88,0.1)]">
+<!-- Inner hole to make it a donut -->
+<div class="size-36 rounded-full bg-background-dark flex flex-col items-center justify-center">
+<span class="text-xs text-slate-500 font-medium uppercase tracking-widest">Sukuk Mix</span>
+<span class="text-xl font-bold">Real Estate</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+<div class="flex items-center gap-3">
+<div class="size-3 rounded-full bg-primary"></div>
+<span class="text-sm font-medium">Real Estate</span>
+</div>
+<span class="text-sm font-bold">65%</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+<div class="flex items-center gap-3">
+<div class="size-3 rounded-full bg-emerald-400"></div>
+<span class="text-sm font-medium">Tech &amp; Agri</span>
+</div>
+<span class="text-sm font-bold">35%</span>
+</div>
+</div>
+</section>
+<!-- Recent Activity -->
+<section class="pb-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-base">Latest Sukuk Yields</h3>
+<a class="text-primary text-xs font-bold" href="#">See All</a>
+</div>
+<div class="space-y-3">
+<div class="glass-card rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined">apartment</span>
+</div>
+<div>
+<p class="text-sm font-bold">Westlands Plaza Sukuk</p>
+<p class="text-[10px] text-slate-500 font-medium">Yield Disbursement • Today</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+ KES 12,450</p>
+<p class="text-[10px] text-slate-500">Credited</p>
+</div>
+</div>
+<div class="glass-card rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">developer_board</span>
+</div>
+<div>
+<p class="text-sm font-bold">Kilifi Green-Tech Bond</p>
+<p class="text-[10px] text-slate-500 font-medium">Market Value Update • 2d ago</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-emerald-400">+ 1.2%</p>
+<p class="text-[10px] text-slate-500">Capital Gain</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 h-20 bg-background-dark/80 backdrop-blur-xl border-t border-white/5 px-6 flex items-center justify-between pb-4">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined font-variation-fill text-[28px]">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[28px]">explore</span>
+<span class="text-[10px] font-bold">Sukuks</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[28px]">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</nav>
+<style>
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</body></html>

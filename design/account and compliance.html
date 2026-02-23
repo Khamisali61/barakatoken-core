@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account &amp; Compliance - BarakaToken</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#008f58",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231b",
+                        "card-dark": "#162e24",
+                        "border-dark": "#1f4234",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
+<!-- Status Bar Spacer (iOS Style) -->
+<div class="h-12 w-full"></div>
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-border-dark">
+<button class="p-2 -ml-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Account &amp; Compliance</h1>
+<button class="p-2 -mr-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Profile Section -->
+<section class="p-6 flex flex-col items-center border-b border-slate-200 dark:border-border-dark">
+<div class="relative mb-4">
+<div class="size-24 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden border-2 border-primary">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Professional profile photo of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADvXPT2_VNvvKRB8bJOR9FZB5eLOoiIxtHzWRDYNY96cAOFlejcRkDHBxuHqRDRy3x6GyXBpxQc5jJDB4FJ6P3daYBca5CBJMppeQj_nRpym-cs7bXEiClh6HTj_fuX8Owg1swpnXjnbCag2sMxi_iNo0v9g3h55O3jL8Kazz9liixEqPXp2sKM-qzStfnoHylaftqV5wio-zvj04OICoNiKqQvlC8wiHdYgk9A7Ie5K7kAqjsIai0JzIXIYFRxBt4iALdW4bnlcc"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-1 border-2 border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">verified</span>
+</div>
+</div>
+<h2 class="text-2xl font-extrabold mb-1">Abdi Ibrahim</h2>
+<div class="flex items-center gap-2 text-primary font-semibold text-sm bg-primary/10 px-3 py-1 rounded-full mb-2">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                KYC Verified (Kenyan ID)
+            </div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Member since Nov 2023 • ID: BT-88294</p>
+</section>
+<!-- Regulatory Notice Card -->
+<section class="px-4 py-6">
+<div class="bg-card-dark rounded-xl p-4 border border-border-dark flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg flex-shrink-0">
+<img alt="CMA Kenya Logo" class="h-8 w-auto grayscale contrast-125" data-alt="Official logo of Capital Markets Authority Kenya" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVl6UoifCrv9Qfqh9zzvst-N5W-7DCRPBMf8dvbSehdWRRJvnGLD-sDLX16qFwkR2tjwJh0LhwV_uhEEf9l2SA5loAuFIqEV1otD2oLsls12YslZL8yn_baE2e_JXP_Ymndmoyz3Zrl9Gx_hLPoIFidFqxu_2XI-czlmKs-nZhBdhzz4ACBCLpINmcyDUesTP66joaweUXZwrwhZPmaXIIQCGCEjqRATcKwvhRNLomByY7IIdxG1EyPJzJz7Wnlp9duWgMyv9Swlw"/>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-white text-sm mb-1 uppercase tracking-wider">Regulatory Compliance</h3>
+<p class="text-slate-400 text-xs leading-relaxed">
+                        BarakaToken is a Shariah-compliant platform admitted to the Capital Markets Authority (CMA) Regulatory Sandbox in Kenya. All Sukuk issuances are tokenized under CMA supervision.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Compliance List Items -->
+<section class="px-4 space-y-2">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest px-2 mb-3">Documents &amp; Shariah</h3>
+<!-- Download Shariah Certificate -->
+<div class="bg-card-dark hover:bg-card-dark/80 transition-colors rounded-xl border border-border-dark overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 text-left">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="font-bold text-slate-100">Shariah Certificate</p>
+<p class="text-xs text-slate-400">View Fatwa and audit details</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">download</span>
+</button>
+</div>
+<!-- Zakat History -->
+<div class="bg-card-dark hover:bg-card-dark/80 transition-colors rounded-xl border border-border-dark overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 text-left">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="font-bold text-slate-100">Zakat History</p>
+<p class="text-xs text-slate-400">Past calculations and distributions</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500">chevron_right</span>
+</button>
+</div>
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest px-2 pt-6 mb-3">Security &amp; Support</h3>
+<!-- Verification Details -->
+<div class="bg-card-dark hover:bg-card-dark/80 transition-colors rounded-xl border border-border-dark overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 text-left">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div>
+<p class="font-bold text-slate-100">Kenyan ID Verification</p>
+<p class="text-xs text-slate-400">Last updated Dec 12, 2023</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500">chevron_right</span>
+</button>
+</div>
+<!-- Support -->
+<div class="bg-card-dark hover:bg-card-dark/80 transition-colors rounded-xl border border-border-dark overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 text-left">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">contact_support</span>
+</div>
+<div>
+<p class="font-bold text-slate-100">Compliance Support</p>
+<p class="text-xs text-slate-400">Connect with our legal team</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Version Info -->
+<section class="p-8 text-center">
+<p class="text-slate-500 text-xs mb-1">BarakaToken v2.4.0 (Kenya)</p>
+<p class="text-slate-600 text-[10px] leading-tight px-8 uppercase tracking-tighter">
+                Licensed under the CMA Regulatory Sandbox framework. All investments involve risk.
+            </p>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Fixed) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-border-dark ios-blur pb-6 pt-2 px-4 flex items-center justify-between z-50">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">home</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter group-hover:text-primary">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">account_balance_wallet</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter group-hover:text-primary">Portfolio</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center -mt-8 shadow-lg shadow-primary/30 border-4 border-background-dark">
+<span class="material-symbols-outlined text-white">add</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">Invest</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">history</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter group-hover:text-primary">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-primary">person</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">Account</span>
+</a>
+</nav>
+</body></html>

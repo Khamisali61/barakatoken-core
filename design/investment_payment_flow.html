@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BarakaToken - Payment Flow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#008f58",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(15, 35, 27, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pin-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .pin-dot.filled {
+            background-color: #008f58;
+            box-shadow: 0 0 10px #008f58;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden flex flex-col">
+<!-- Background Layer (Asset Details Screen - Blurred) -->
+<div class="flex-1 flex flex-col blur-md grayscale-[20%] pointer-events-none">
+<!-- Header -->
+<div class="flex items-center p-4 justify-between">
+<div class="material-symbols-outlined text-2xl">arrow_back</div>
+<h2 class="text-lg font-bold">Asset Details</h2>
+<div class="material-symbols-outlined text-2xl">info</div>
+</div>
+<!-- Asset Hero Card -->
+<div class="p-4">
+<div class="rounded-xl bg-primary/10 border border-primary/20 overflow-hidden">
+<div class="w-full h-48 bg-cover bg-center" data-alt="Nairobi expressway aerial view infrastructure project" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBExUbum7hzAPQnjRJY4eLp8PSmADhqk6QGqhoTbSx1yVTS7pZGLP105HQGpFl5ABe9xaijUH40hRZPUCtwROLVw9ITt5aJkusLBvCW7TahIA0Pbux_2LjvXAFXaFgo3K_PNgFnQQIc9h-CfnCO9hKDP6tIHfCNtNjM8v8qAhGDLP_v97Petfge0XJI3ROczN6jF3XK7VpwM9L95KuVs_C-huCX-atCN6H-M4_eMYRk2kDFRhXxd_GmWYZHydxBVCQvBarfN3yx8kQ');"></div>
+<div class="p-4 space-y-1">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Asset-Backed</span>
+<h3 class="text-xl font-bold">Kenyan Infrastructure Sukuk (KIS-01)</h3>
+<p class="text-slate-400 text-sm">Shariah-compliant tokenized infrastructure investment in the Nairobi Expressway expansion.</p>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="px-4 grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
+<p class="text-xs text-slate-400 uppercase">Target Yield</p>
+<p class="text-lg font-bold text-primary">12.5% p.a.</p>
+</div>
+<div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
+<p class="text-xs text-slate-400 uppercase">Maturity</p>
+<p class="text-lg font-bold">36 Months</p>
+</div>
+</div>
+</div>
+<!-- M-Pesa STK Push Overlay -->
+<div class="fixed inset-0 bg-black/60 flex flex-col justify-end z-50">
+<!-- Bottom Sheet Glassmorphic Modal -->
+<div class="glass-panel rounded-t-2xl px-6 pt-2 pb-8 flex flex-col items-center">
+<!-- Handle -->
+<div class="w-12 h-1.5 bg-slate-600/50 rounded-full my-3"></div>
+<!-- Transaction Icon/Logo -->
+<div class="flex items-center gap-3 mb-6 mt-2">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-2xl">payments</span>
+</div>
+<div class="h-6 w-px bg-slate-700"></div>
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-400 font-bold tracking-widest uppercase leading-none">Recipient</span>
+<span class="text-lg font-extrabold text-white">BarakaToken</span>
+</div>
+</div>
+<!-- Amount Section -->
+<div class="text-center space-y-1 mb-8">
+<p class="text-slate-400 text-sm font-medium">Paying for KIS-01 Investment</p>
+<h1 class="text-4xl font-extrabold text-white">KES 50,000.00</h1>
+</div>
+<!-- M-Pesa Instruction -->
+<div class="w-full bg-slate-800/40 rounded-xl p-4 border border-slate-700/30 mb-8 flex items-center gap-4">
+<div class="size-10 rounded-lg bg-[#49ae44] flex items-center justify-center shrink-0">
+<span class="text-white font-black text-xs italic">M</span>
+</div>
+<div>
+<p class="text-white text-sm font-bold">M-Pesa STK Push</p>
+<p class="text-slate-400 text-xs">A prompt will be sent to +254 7** *** 123</p>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+</div>
+<!-- PIN Input Field Aesthetic -->
+<div class="flex flex-col items-center w-full space-y-4 mb-8">
+<p class="text-slate-300 text-sm font-semibold">Enter M-Pesa PIN to Authorize</p>
+<div class="flex gap-4">
+<div class="pin-dot filled"></div>
+<div class="pin-dot filled"></div>
+<div class="pin-dot"></div>
+<div class="pin-dot"></div>
+<div class="pin-dot"></div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full space-y-4">
+<button class="w-full bg-primary hover:bg-primary/90 transition-colors h-14 rounded-xl flex items-center justify-center gap-2 text-white font-bold text-lg shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">lock</span>
+                    Confirm Payment
+                </button>
+<button class="w-full bg-transparent hover:bg-white/5 transition-colors h-12 rounded-xl text-slate-400 font-bold text-sm">
+                    Cancel Transaction
+                </button>
+</div>
+<!-- Trust Badges -->
+<div class="mt-8 pt-6 border-t border-slate-800/50 w-full flex items-center justify-between">
+<div class="flex items-center gap-1.5 opacity-60">
+<span class="material-symbols-outlined text-sm text-primary">verified_user</span>
+<span class="text-[10px] font-bold text-slate-300 uppercase tracking-tighter">Shariah Compliant</span>
+</div>
+<div class="flex items-center gap-1.5 opacity-60">
+<div class="size-4 bg-[#8247e5] rounded-sm flex items-center justify-center overflow-hidden">
+<svg class="w-3 h-3" fill="white" viewbox="0 0 24 24"><path d="M12 2L2 7.5L12 13L22 7.5L12 2Z"></path><path d="M2 12.5L12 18L22 12.5L12 7L2 12.5Z"></path><path d="M2 17.5L12 23L22 17.5L12 12L2 17.5Z"></path></svg>
+</div>
+<span class="text-[10px] font-bold text-slate-300 uppercase tracking-tighter">Polygon Network</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation (Dark) -->
+<div class="mt-auto glass-panel border-t border-white/5 pb-6 pt-3 px-6 flex justify-between items-center z-10">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold">Invest</span>
+</a>
+<div class="flex flex-col items-center">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center shadow-lg -mt-8 border-4 border-background-dark">
+<span class="material-symbols-outlined text-white">add</span>
+</div>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+</body></html>

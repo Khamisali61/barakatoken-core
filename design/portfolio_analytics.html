@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BarakaToken - Portfolio Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#008f58",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .chart-gradient {
+            background: linear-gradient(180deg, rgba(0, 143, 88, 0.2) 0%, rgba(0, 143, 88, 0) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen pb-24">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back_ios_new</span>
+</button>
+<div>
+<h1 class="text-lg font-bold tracking-tight">Portfolio Analytics</h1>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">BarakaToken Premium</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="p-2 rounded-full bg-primary/10 text-primary relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 py-6 space-y-8">
+<!-- Main Portfolio Value Card -->
+<section class="bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl p-6 border border-primary/20 shadow-xl shadow-primary/5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm font-medium text-primary/80 mb-1">Total Portfolio Value</p>
+<h2 class="text-3xl font-extrabold tracking-tight">KES 1,250,000.00</h2>
+</div>
+<div class="bg-primary/20 text-primary px-2 py-1 rounded-lg flex items-center gap-1 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                    12.5%
+                </div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-primary/10">
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Total Profit</p>
+<p class="text-lg font-bold text-primary">KES 45,200</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Active Sukuks</p>
+<p class="text-lg font-bold">12 Assets</p>
+</div>
+</div>
+</section>
+<!-- Profit Distributions Chart Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Profit Distributions</h3>
+<div class="bg-primary/10 p-1 rounded-lg flex gap-1">
+<button class="px-3 py-1 text-xs font-bold rounded-md bg-primary text-white shadow-sm">3M</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md hover:bg-primary/20">6M</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md hover:bg-primary/20">1Y</button>
+</div>
+</div>
+<div class="relative h-48 w-full bg-primary/5 rounded-xl border border-primary/10 p-4 flex flex-col justify-end overflow-hidden">
+<!-- Abstract Line Chart Simulation -->
+<div class="absolute inset-0 chart-gradient"></div>
+<div class="relative z-10 flex items-end justify-between h-32 gap-2">
+<div class="w-full h-[40%] bg-primary/20 rounded-t-sm relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-white text-[10px] px-1 rounded">12k</div>
+</div>
+<div class="w-full h-[55%] bg-primary/30 rounded-t-sm"></div>
+<div class="w-full h-[45%] bg-primary/20 rounded-t-sm"></div>
+<div class="w-full h-[70%] bg-primary/40 rounded-t-sm"></div>
+<div class="w-full h-[60%] bg-primary/30 rounded-t-sm"></div>
+<div class="w-full h-[85%] bg-primary rounded-t-sm shadow-[0_0_15px_rgba(0,143,88,0.4)]"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-500 uppercase tracking-tighter">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+</div>
+</div>
+</section>
+<!-- Purification Section (Zakat/Charity) -->
+<section class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-inner">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 rounded-full bg-amber-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-500">volunteer_activism</span>
+</div>
+<div>
+<h3 class="font-bold">Purification Amounts</h3>
+<p class="text-xs text-slate-400">Shariah-compliant Zakat/Charity tracking</p>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<p class="text-2xl font-bold text-slate-100">KES 3,125.50</p>
+<p class="text-xs text-amber-500/80 font-medium">Calculated for current quarter</p>
+</div>
+<button class="bg-amber-500 text-slate-900 px-4 py-2 rounded-lg text-sm font-extrabold hover:bg-amber-400 transition-colors">
+                    Purify Now
+                </button>
+</div>
+</section>
+<!-- Assets Breakdown -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold">Detailed Breakdown</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+                    View All <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<!-- Asset Row 1 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">token</span>
+</div>
+<div>
+<p class="font-bold">M-Akiba Sukuk II</p>
+<p class="text-xs text-slate-500">Principal: KES 500,000</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold">KES 545,000</p>
+<p class="text-[10px] text-primary font-bold">+9.0% Yield</p>
+</div>
+</div>
+<!-- Asset Row 2 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-slate-700 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="font-bold">Nairobi Water Sukuk</p>
+<p class="text-xs text-slate-500">Principal: KES 300,000</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold">KES 324,200</p>
+<p class="text-[10px] text-primary font-bold">+8.1% Yield</p>
+</div>
+</div>
+<!-- Asset Row 3 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-slate-700 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">apartment</span>
+</div>
+<div>
+<p class="font-bold">Real Estate Sukuk I</p>
+<p class="text-xs text-slate-500">Principal: KES 400,000</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold">KES 380,800</p>
+<p class="text-[10px] text-red-400 font-bold">-4.8% Market</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-light dark:bg-[#0b1a14] border-t border-primary/20 px-6 pb-8 pt-3">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Portfolio</span>
+</a>
+<a class="flex flex-col items-center -mt-10 relative" href="#">
+<div class="size-14 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/40 ring-4 ring-background-dark">
+<span class="material-symbols-outlined text-2xl">add</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter mt-2 text-slate-500">Invest</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Floating Background Motif -->
+<div class="fixed inset-0 pointer-events-none opacity-20 -z-10 overflow-hidden">
+<div class="absolute -top-24 -right-24 size-64 bg-primary/20 blur-[120px] rounded-full"></div>
+<div class="absolute top-1/2 -left-32 size-96 bg-primary/10 blur-[150px] rounded-full"></div>
+</div>
+</body></html>

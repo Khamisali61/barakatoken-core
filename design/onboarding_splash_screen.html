@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BarakaToken - Onboarding Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#008f58",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        .bg-glow {
+            background: radial-gradient(circle at center, rgba(0, 143, 88, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-slate-100 flex flex-col min-h-screen overflow-hidden">
+<!-- Top Navigation / Decorative element -->
+<div class="flex items-center justify-between p-6 z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+<span class="text-xs font-medium tracking-widest uppercase text-slate-400">Institutional Grade</span>
+</div>
+<div class="text-xs font-medium text-slate-500 uppercase tracking-widest">v1.0.4</div>
+</div>
+<!-- Main Content Area with Radial Glow -->
+<main class="flex-1 flex flex-col items-center justify-center relative px-8">
+<div class="absolute inset-0 bg-glow pointer-events-none"></div>
+<!-- Logo Container -->
+<div class="relative mb-12 flex flex-col items-center">
+<!-- Stylized Logo Icon -->
+<div class="w-24 h-24 mb-6 rounded-2xl bg-gradient-to-br from-primary to-[#005c39] flex items-center justify-center shadow-[0_0_40px_rgba(0,143,88,0.3)]">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1">shield_moon</span>
+</div>
+<!-- Brand Name -->
+<h1 class="text-4xl font-bold tracking-tight text-white mb-2">
+                Baraka<span class="text-primary">Token</span>
+</h1>
+<div class="h-1 w-12 bg-primary rounded-full"></div>
+</div>
+<!-- Tagline -->
+<div class="text-center max-w-xs">
+<h2 class="text-2xl font-semibold leading-tight text-slate-100 mb-4">
+                Invest Ethically.<br/>Grow Together.
+            </h2>
+<p class="text-slate-400 text-sm leading-relaxed">
+                Kenya's premier Shariah-compliant digital Sukuk platform for collective prosperity.
+            </p>
+</div>
+</main>
+<!-- Footer Content -->
+<footer class="w-full">
+<!-- Progress Bar -->
+<div class="px-12 mb-12">
+<div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3 rounded-full"></div>
+</div>
+<p class="text-[10px] uppercase tracking-[0.2em] text-center mt-3 text-slate-500">Securing your session...</p>
+</div>
+<!-- Partners / Trust Bar -->
+<div class="glass-panel py-8 px-6 pb-12 flex flex-col items-center">
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-6">Powered by trusted infrastructure</p>
+<div class="flex items-center justify-between w-full max-w-sm px-4">
+<!-- M-Pesa Concept -->
+<div class="flex flex-col items-center gap-1 opacity-60 grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-2xl text-white">payments</span>
+<span class="text-[9px] font-bold text-white">M-PESA</span>
+</div>
+<!-- Separator -->
+<div class="h-4 w-[1px] bg-white/10"></div>
+<!-- Polygon Concept -->
+<div class="flex flex-col items-center gap-1 opacity-60 grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-2xl text-white">polyline</span>
+<span class="text-[9px] font-bold text-white uppercase">Polygon</span>
+</div>
+<!-- Separator -->
+<div class="h-4 w-[1px] bg-white/10"></div>
+<!-- Shariah Concept -->
+<div class="flex flex-col items-center gap-1 opacity-60 grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-2xl text-white">verified</span>
+<span class="text-[9px] font-bold text-white uppercase">Shariah Cert.</span>
+</div>
+</div>
+</div>
+<!-- iOS Home Indicator Space -->
+<div class="h-6 bg-black"></div>
+</footer>
+<!-- Background Images for context (hidden but available for the engine) -->
+<div class="hidden">
+<img data-alt="Emerald green geometric Islamic pattern background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrnXN14eMLaTzq9PKh5RGgxPTrnye2uo9vIGo370MvLr7KtK1n88zUKP-r1emNkfdu-Qq8PLnDf0cLFxW_AJyUt3nAtT2MMNpkKIFWRf8S7Rq0mHiylIygZk1MAAKCzGeUiJDJCp2jtOWKKvFpPeXzxm949nGsplRe6ldM5XmmwLU8LZ3AlhIjLJFCkOdimycdPhrTbVs52Ui90BT-JwdafFKAzfI15IDGsdvdfWjoqJeTop6T-lyx6YUVd8XC9vAtwg6Ye8YOzKM"/>
+<img data-alt="M-Pesa logo in white monochrome" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKvfLWYXZP0EeYgjSaBk4pgJj6BlSW0U4kDuXxqQQoJFoIft3NglZMdnsU5sUpW9sT7cgpx93LtmsSJ0bHYMY9emUvLtsFUg8cV81_TCJspku-QkgrzxizzmMw1z9dwB0NABpXp9EKIN7KN0s9Xa-j0mr9OtNOe4IWmdNVO43EVIjuDKt8KkBp_108wN6qFZ1EFAuNn-ZzKZG2AJBAanrnEeLAz0EimviSMrFDRASviH6QeW54S4Kz_0RFiqdZV3AhfLMLXUUuwb8"/>
+<img data-alt="Polygon network logo in white monochrome" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCveR3AzNmzq4XQSq87TwEDoyfhLzkzvJ9QmctOSrUXuDbUG9NKx_M-rdwD9p7HXGmi2s6khc-EnevnxNDDIVc8hhY1oRDEjyP1zfAvK89syay9Xes8pExOYDM1aQXWIaBBXIs1Zi0LzJ4akRjhrdN_lI4bvOttTMEIdQbgEp4-92xBxAExF1D6CAwGClW2RDp8xufwYwOV8YuQt0q0YkAiecjDtx1394zR37oH6vrXJ_PGl_z0PHPhKb2D_xul0E6S3AmlTCGOKMY"/>
+<img data-alt="Official Shariah certification seal icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK1A3ApJlX-b_2yYo51Fb_nU_TwvNNABsmV06G-ZJicTnogvqXmrguats84_wH11zX9fRXdv0fpzRCxXrBBx50T6o0qoms1dBaMK_ZdlSG-P6LN34fAqiHU1GBvpf3M6CeybZZIVpHjnSBRSlnedrbxFPQHuhi2O-XWivL9KacUlLpnUEnpp7IvtOCnw-fKtVIvlGAGrp5AIqvOwqPyzZ4o5w9hlK9D_dNimu8od2_vATDuZ-hIzQHhKPTd8BSrpKR8LxdeaNkdO8"/>
+</div>
+</body></html>
