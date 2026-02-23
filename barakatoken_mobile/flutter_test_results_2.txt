@@ -1,0 +1,149 @@
+00:00 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:01 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:02 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:03 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:04 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:05 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:06 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:07 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:08 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:09 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:10 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:11 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:12 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:13 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:14 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:15 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:15 +0: Dashboard loads test                                                                                                                                                                         00:16 +0: Dashboard loads test                                                                                                                                                                         00:17 +0: Dashboard loads test                                                                                                                                                                         00:17 +0: Dashboard loads test
+Pending timers:
+Timer (duration: 0:00:00.000000, periodic: false), created:
+#0      new FakeTimer._ (package:fake_async/fake_async.dart:342:62)
+#1      FakeAsync._createTimer (package:fake_async/fake_async.dart:260:29)
+#2      FakeAsync.run.<anonymous closure> (package:fake_async/fake_async.dart:185:15)
+#7      DioMixin.fetch (package:dio/src/dio_mixin.dart:466:30)
+#8      DioMixin.request (package:dio/src/dio_mixin.dart:374:12)
+#9      DioMixin.get (package:dio/src/dio_mixin.dart:71:12)
+#10     assetsProvider.<anonymous closure> (package:barakatoken_mobile/features/marketplace/data/asset_provider.dart:7:30)
+#11     FutureProvider._create (package:riverpod/src/future_provider/base.dart:71:65)
+#12     FutureProviderElement.create.<anonymous closure> (package:riverpod/src/future_provider/base.dart:117:22)
+#13     FutureHandlerProviderElementMixin.handleFuture.<anonymous closure> (package:riverpod/src/async_notifier/base.dart:341:30)
+#14     FutureHandlerProviderElementMixin._handleAsync (package:riverpod/src/async_notifier/base.dart:388:47)
+#15     FutureHandlerProviderElementMixin.handleFuture (package:riverpod/src/async_notifier/base.dart:335:5)
+#16     FutureProviderElement.create (package:riverpod/src/future_provider/base.dart:116:5)
+#17     ProviderElementBase.buildState (package:riverpod/src/framework/element.dart:426:7)
+#18     ProviderElementBase.mount (package:riverpod/src/framework/element.dart:228:5)
+#19     _StateReader._create (package:riverpod/src/framework/container.dart:47:11)
+#20     _StateReader.getElement (package:riverpod/src/framework/container.dart:35:52)
+#21     ProviderContainer.readProviderElement.<anonymous closure> (package:riverpod/src/framework/container.dart:440:40)
+#22     ProviderContainer.readProviderElement (package:riverpod/src/framework/container.dart:475:8)
+#23     ProviderBase.addListener (package:riverpod/src/framework/provider_base.dart:79:26)
+#24     ProviderContainer.listen (package:riverpod/src/framework/container.dart:280:21)
+#25     ConsumerStatefulElement.watch.<anonymous closure> (package:flutter_riverpod/src/consumer.dart:564:25)
+#26     _LinkedHashMapMixin.putIfAbsent (dart:_compact_hash:675:23)
+#27     ConsumerStatefulElement.watch (package:flutter_riverpod/src/consumer.dart:557:26)
+#28     _DashboardScreenState._buildRecentActivity (package:barakatoken_mobile/features/dashboard/presentation/dashboard_screen.dart:365:29)
+#29     _DashboardScreenState._buildDashboardHome (package:barakatoken_mobile/features/dashboard/presentation/dashboard_screen.dart:52:13)
+#30     _DashboardScreenState.build (package:barakatoken_mobile/features/dashboard/presentation/dashboard_screen.dart:24:11)
+#31     StatefulElement.build (package:flutter/src/widgets/framework.dart:5934:27)
+#32     ConsumerStatefulElement.build (package:flutter_riverpod/src/consumer.dart:539:20)
+#33     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5820:15)
+#34     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#35     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#36     ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5802:5)
+#37     StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5976:11)
+#38     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5796:5)
+...     Normal element mounting (260 frames)
+#298    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4590:20)
+#299    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7269:36)
+#300    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7285:32)
+...     Normal element mounting (460 frames)
+#760    _UncontrolledProviderScopeElement.mount (package:flutter_riverpod/src/framework.dart:315:11)
+...     Normal element mounting (9 frames)
+#769    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4590:20)
+#770    Element.updateChild (package:flutter/src/widgets/framework.dart:4053:20)
+#771    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#772    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#773    ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#774    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#775    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#776    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#777    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#778    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#779    StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#780    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#781    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#782    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#783    ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#784    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#785    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#786    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#787    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#788    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#789    StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#790    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#791    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#792    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#793    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#794    StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#795    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#796    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#797    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#798    ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#799    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#800    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#801    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#802    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#803    StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#804    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#805    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#806    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#807    ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#808    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#809    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#810    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#811    ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#812    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#813    _RawViewElement._updateChild (package:flutter/src/widgets/view.dart:481:16)
+#814    _RawViewElement.update (package:flutter/src/widgets/view.dart:568:5)
+#815    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#816    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#817    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#818    StatelessElement.update (package:flutter/src/widgets/framework.dart:5898:5)
+#819    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#820    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#821    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#822    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#823    StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#824    Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#825    RootElement._rebuild (package:flutter/src/widgets/binding.dart:1782:16)
+#826    RootElement.update (package:flutter/src/widgets/binding.dart:1760:5)
+#827    RootElement.performRebuild (package:flutter/src/widgets/binding.dart:1774:7)
+#828    Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#829    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2750:15)
+#830    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2807:11)
+#831    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3111:18)
+#832    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:1506:19)
+#833    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+#834    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1434:15)
+#835    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1347:9)
+#836    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:1335:9)
+#839    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#840    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:1324:27)
+#841    WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#844    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#845    WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#846    main.<anonymous closure> (file:///app/barakatoken_mobile/test/widget_test.dart:9:18)
+#847    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#848    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 9 frames from dart:async and package:stack_trace)
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A Timer is still pending even after the widget tree was disposed.
+'package:flutter_test/src/binding.dart':
+Failed assertion: line 1617 pos 12: '!timersPending'
+
+When the exception was thrown, this was the stack:
+#2      AutomatedTestWidgetsFlutterBinding._verifyInvariants (package:flutter_test/src/binding.dart:1617:12)
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1078:7)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from class _AssertionError and package:stack_trace)
+
+The test description was:
+  Dashboard loads test
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:17 +0 -1: Dashboard loads test [E]
+  Test failed. See exception logs above.
+  The test description was: Dashboard loads test
+
+
+To run this test again: /opt/flutter/bin/cache/dart-sdk/bin/dart test /app/barakatoken_mobile/test/widget_test.dart -p vm --plain-name 'Dashboard loads test'
+00:17 +0 -1: Some tests failed.

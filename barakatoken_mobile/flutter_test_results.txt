@@ -1,0 +1,126 @@
+00:00 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:01 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:02 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:03 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        lib/features/dashboard/presentation/dashboard_screen.dart:57:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/features/dashboard/presentation/dashboard_screen.dart:57:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/features/dashboard/presentation/dashboard_screen.dart:57:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/features/dashboard/presentation/dashboard_screen.dart:58:44: Error: Expected ';' after this.
+      bottomNavigationBar: _buildBottomNav(),
+                                           ^
+lib/features/dashboard/presentation/dashboard_screen.dart:58:45: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      bottomNavigationBar: _buildBottomNav(),
+                                            ^
+lib/features/dashboard/presentation/dashboard_screen.dart:58:45: Error: Unexpected token ';'.
+      bottomNavigationBar: _buildBottomNav(),
+                                            ^
+lib/features/dashboard/presentation/dashboard_screen.dart:59:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/features/dashboard/presentation/dashboard_screen.dart:58:45: Error: Expected ';' after this.
+      bottomNavigationBar: _buildBottomNav(),
+                                            ^
+lib/features/dashboard/presentation/dashboard_screen.dart:59:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/features/dashboard/presentation/dashboard_screen.dart:145:68: Error: No named parameter with the name 'py'.
+                padding: const EdgeInsets.symmetric(horizontal: 8, py: 4),
+                                                                   ^^
+/opt/flutter/packages/flutter/lib/src/painting/edge_insets.dart:428:9: Context: Found this candidate, but the arguments don't match.
+  const EdgeInsets.symmetric({double vertical = 0.0, double horizontal = 0.0})
+        ^^^^^^^^^^^^^^^^^^^^
+lib/features/dashboard/presentation/dashboard_screen.dart:161:96: Error: Member not found: 'extrabold'.
+          const Text('KES 1,250,000.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.extrabold)),
+                                                                                          ^^^^^^^^^
+lib/features/dashboard/presentation/dashboard_screen.dart:252:94: Error: Member not found: 'emeraldAccent'.
+        _buildStatCard('Est. ROI (P.A)', '14.5%', 'Weighted average', Icons.insights, Colors.emeraldAccent),
+                                                                                          ^^^^^^^^^^^^^
+lib/features/dashboard/presentation/dashboard_screen.dart:308:58: Error: Member not found: 'emeraldAccent'.
+                  colors: [AppTheme.primaryColor, Colors.emeraldAccent, AppTheme.primaryColor],
+                                                         ^^^^^^^^^^^^^
+lib/features/dashboard/presentation/dashboard_screen.dart:337:66: Error: Member not found: 'emeraldAccent'.
+          _buildDiversificationItem('Tech & Agri', '35%', Colors.emeraldAccent),
+                                                                 ^^^^^^^^^^^^^
+00:04 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        lib/features/marketplace/presentation/marketplace_screen.dart:125:9: Error: No named parameter with the name 'overflow'.
+        overflow: BorderRadius.circular(24),
+        ^^^^^^^^
+/opt/flutter/packages/flutter/lib/src/painting/box_decoration.dart:93:9: Context: Found this candidate, but the arguments don't match.
+  const BoxDecoration({
+        ^^^^^^^^^^^^^
+lib/features/portfolio/presentation/portfolio_analytics_screen.dart:51:94: Error: Member not found: 'extrabold'.
+          const Text('KES 154,200.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.extrabold)),
+                                                                                          ^^^^^^^^^
+lib/features/portfolio/presentation/portfolio_analytics_screen.dart:106:66: Error: Member not found: 'emeraldAccent'.
+        _buildAllocationItem('Mombasa Solar Farm', '25%', Colors.emeraldAccent),
+                                                                 ^^^^^^^^^^^^^
+00:05 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:06 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:07 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:08 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:09 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:10 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:11 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:12 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:12 +0 -1: loading /app/barakatoken_mobile/test/widget_test.dart [E]
+  Failed to load "/app/barakatoken_mobile/test/widget_test.dart":
+  Compilation failed for testPath=/app/barakatoken_mobile/test/widget_test.dart: lib/features/dashboard/presentation/dashboard_screen.dart:57:7: Error: Expected ';' after this.
+        ),
+        ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:57:8: Error: Expected an identifier, but got ','.
+  Try inserting an identifier before ','.
+        ),
+         ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:57:8: Error: Unexpected token ';'.
+        ),
+         ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:58:44: Error: Expected ';' after this.
+        bottomNavigationBar: _buildBottomNav(),
+                                             ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:58:45: Error: Expected an identifier, but got ','.
+  Try inserting an identifier before ','.
+        bottomNavigationBar: _buildBottomNav(),
+                                              ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:58:45: Error: Unexpected token ';'.
+        bottomNavigationBar: _buildBottomNav(),
+                                              ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:59:5: Error: Expected an identifier, but got ')'.
+  Try inserting an identifier before ')'.
+      );
+      ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:58:45: Error: Expected ';' after this.
+        bottomNavigationBar: _buildBottomNav(),
+                                              ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:59:5: Error: Unexpected token ';'.
+      );
+      ^
+  lib/features/dashboard/presentation/dashboard_screen.dart:145:68: Error: No named parameter with the name 'py'.
+                  padding: const EdgeInsets.symmetric(horizontal: 8, py: 4),
+                                                                     ^^
+  /opt/flutter/packages/flutter/lib/src/painting/edge_insets.dart:428:9: Context: Found this candidate, but the arguments don't match.
+    const EdgeInsets.symmetric({double vertical = 0.0, double horizontal = 0.0})
+          ^^^^^^^^^^^^^^^^^^^^
+  lib/features/dashboard/presentation/dashboard_screen.dart:161:96: Error: Member not found: 'extrabold'.
+            const Text('KES 1,250,000.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.extrabold)),
+                                                                                                 ^^^^^^^^^
+  lib/features/dashboard/presentation/dashboard_screen.dart:252:94: Error: Member not found: 'emeraldAccent'.
+          _buildStatCard('Est. ROI (P.A)', '14.5%', 'Weighted average', Icons.insights, Colors.emeraldAccent),
+                                                                                               ^^^^^^^^^^^^^
+  lib/features/dashboard/presentation/dashboard_screen.dart:308:58: Error: Member not found: 'emeraldAccent'.
+                    colors: [AppTheme.primaryColor, Colors.emeraldAccent, AppTheme.primaryColor],
+                                                           ^^^^^^^^^^^^^
+  lib/features/dashboard/presentation/dashboard_screen.dart:337:66: Error: Member not found: 'emeraldAccent'.
+            _buildDiversificationItem('Tech & Agri', '35%', Colors.emeraldAccent),
+                                                                   ^^^^^^^^^^^^^
+  lib/features/marketplace/presentation/marketplace_screen.dart:125:9: Error: No named parameter with the name 'overflow'.
+          overflow: BorderRadius.circular(24),
+          ^^^^^^^^
+  /opt/flutter/packages/flutter/lib/src/painting/box_decoration.dart:93:9: Context: Found this candidate, but the arguments don't match.
+    const BoxDecoration({
+          ^^^^^^^^^^^^^
+  lib/features/portfolio/presentation/portfolio_analytics_screen.dart:51:94: Error: Member not found: 'extrabold'.
+            const Text('KES 154,200.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.extrabold)),
+                                                                                               ^^^^^^^^^
+  lib/features/portfolio/presentation/portfolio_analytics_screen.dart:106:66: Error: Member not found: 'emeraldAccent'.
+          _buildAllocationItem('Mombasa Solar Farm', '25%', Colors.emeraldAccent),
+                                                                   ^^^^^^^^^^^^^
+  .
+
+To run this test again: /opt/flutter/bin/cache/dart-sdk/bin/dart test /app/barakatoken_mobile/test/widget_test.dart -p vm --plain-name 'loading /app/barakatoken_mobile/test/widget_test.dart'
+00:12 +0 -1: Some tests failed.
