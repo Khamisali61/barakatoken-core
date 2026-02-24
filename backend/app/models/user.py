@@ -12,3 +12,6 @@ class User(Base):
     is_verified = Column(Boolean(), default=False)
     is_admin = Column(Boolean(), default=False)
     wallet_address = Column(String, unique=True, index=True, nullable=True)
+    kes_balance = Column(Numeric(18, 4), default=0.0000)
+    usd_balance = Column(Numeric(18, 4), default=0.0000)
+    kyc_status = Column(String, default="Pending") # Pending, Verified, Rejected

@@ -4,6 +4,7 @@ import 'package:barakatoken_mobile/core/theme/app_theme.dart';
 import 'package:barakatoken_mobile/features/marketplace/data/asset_provider.dart';
 import 'package:barakatoken_mobile/features/marketplace/presentation/marketplace_screen.dart';
 import 'package:barakatoken_mobile/features/portfolio/presentation/portfolio_analytics_screen.dart';
+import 'package:barakatoken_mobile/features/dashboard/presentation/wallet_screen.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -23,7 +24,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         children: [
           _buildDashboardHome(),
           const MarketplaceScreen(),
-          const Center(child: Text('Wallet Screen')),
+          const WalletScreen(),
           const PortfolioAnalyticsScreen(),
         ],
       ),

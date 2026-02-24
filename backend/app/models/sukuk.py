@@ -20,3 +20,8 @@ class SukukAsset(Base):
     image_url = Column(String, nullable=True)
     status = Column(String, default="Draft") # Draft, Onboarded, Minted, Active
     contract_address = Column(String, nullable=True)
+    construction_milestone_percent = Column(Numeric(18, 4), default=0.0000)
+    units_pre_sold = Column(Integer, default=0)
+    fund_utilization_percent = Column(Numeric(18, 4), default=0.0000)
+    fatwa_summary = Column(Text, nullable=True)
+    shariah_cert_high_res_url = Column(String, nullable=True)

@@ -51,7 +51,12 @@ def seed_db():
             "image_url": "https://lh3.googleusercontent.com/aida-public/AB6AXuDRDRtd7I-eNIyDLFv8zIRYJi526Z5liZPFn26mMlhhwmZPR8Gdg9lS-vhFlhXclQq9568Cw7AYM21XRP8f0U8kpyQSg5g7Sa5t4eKdrlHfMUNtAR4Md9v-grpVtIgrVclRiP75l2H7tqsxvIAXbEZPA7pFUZy93dXD0Ouar8T1pe5HQhWsNs3wdx77MqUAE6K5URXA1RGLI8HPYIG_tMBJmF1uDL3E7arO-8BBIIa8q-D42Sf6LLkRnCh2oUMKxetdoa3s59lBxnw",
             "legal_doc_url": "https://barakatoken.com/docs/nairobi-green-housing-legal.pdf",
             "shariah_cert_url": "https://barakatoken.com/docs/nairobi-green-housing-shariah.pdf",
-            "status": "Active"
+            "status": "Active",
+            "construction_milestone_percent": Decimal("65.0000"),
+            "units_pre_sold": 142,
+            "fund_utilization_percent": Decimal("78.5000"),
+            "fatwa_summary": "This Musharakah Sukuk is Shariah-compliant, verified by the Global Shariah Advisory Board. It involves no Riba and is backed by physical real estate assets in Nairobi.",
+            "shariah_cert_high_res_url": "https://barakatoken.com/docs/nairobi-shariah-highres.jpg"
         },
         {
             "title": "Mombasa Solar Farm",

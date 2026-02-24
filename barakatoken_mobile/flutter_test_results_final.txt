@@ -1,26 +1,0 @@
-00:00 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:01 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:02 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:03 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:04 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:05 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:06 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:07 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:08 +0: loading /app/barakatoken_mobile/test/widget_test.dart                                                                                                                                        00:08 +0: Dashboard loads test                                                                                                                                                                         00:09 +0: Dashboard loads test                                                                                                                                                                         00:10 +0: Dashboard loads test                                                                                                                                                                         00:10 +0: Dashboard loads test
-══╡ EXCEPTION CAUGHT BY IMAGE RESOURCE SERVICE ╞════════════════════════════════════════════════════
-The following NetworkImageLoadException was thrown resolving an image codec:
-HTTP request failed, statusCode: 400, file:///app/barakatoken_mobile/
-
-When the exception was thrown, this was the stack:
-#0      NetworkImage._loadAsync (package:flutter/src/painting/_network_image_io.dart:130:9)
-<asynchronous suspension>
-#1      MultiFrameImageStreamCompleter._handleCodecReady (package:flutter/src/painting/image_stream.dart:1021:3)
-<asynchronous suspension>
-
-Image provider: NetworkImage("", scale: 1.0, webHtmlElementStrategy: never, headers: null)
-Image key: NetworkImage("", scale: 1.0, webHtmlElementStrategy: never, headers: null)
-════════════════════════════════════════════════════════════════════════════════════════════════════
-00:10 +0 -1: Dashboard loads test [E]
-  Test failed. See exception logs above.
-  The test description was: Dashboard loads test
-
-Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
-TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
-will actually be made. Any test expecting a real network connection and status code will fail.
-To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
-test, so that your test can consistently provide a testable response to the code under test.
-
-To run this test again: /opt/flutter/bin/cache/dart-sdk/bin/dart test /app/barakatoken_mobile/test/widget_test.dart -p vm --plain-name 'Dashboard loads test'
-00:10 +0 -1: Some tests failed.

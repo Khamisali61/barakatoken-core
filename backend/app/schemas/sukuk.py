@@ -17,6 +17,12 @@ class SukukAssetBase(BaseModel):
     shariah_cert_url: Optional[str] = None
     image_url: Optional[str] = None
     status: str = "Active"
+    construction_milestone_percent: Optional[Decimal] = None
+    units_pre_sold: Optional[int] = None
+    fund_utilization_percent: Optional[Decimal] = None
+    fatwa_summary: Optional[str] = None
+    shariah_cert_high_res_url: Optional[str] = None
+    contract_address: Optional[str] = None
 
 class SukukAssetCreate(SukukAssetBase):
     pass

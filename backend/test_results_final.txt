@@ -1,8 +1,0 @@
-============================= test session starts ==============================
-platform linux -- Python 3.12.12, pytest-9.0.2, pluggy-1.6.0
-rootdir: /app/backend
-collected 1 item
-
-tests/test_models.py .                                                   [100%]
-
-============================== 1 passed in 0.56s ===============================

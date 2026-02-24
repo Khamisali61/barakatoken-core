@@ -24,7 +24,9 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
             _buildYieldChart(),
             const SizedBox(height: 30),
             _buildAssetAllocation(),
-            const SizedBox(height: 30),
+            const SizedBox(height: 32),
+            _buildSecondaryMarketIntent(),
+            const SizedBox(height: 32),
             _buildComplianceStatus(),
           ],
         ),
@@ -77,18 +79,56 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Yield History', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Yield History', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(color: Colors.white.withOpacity(0.05), borderRadius: BorderRadius.circular(6)),
+              child: const Text('BLOOMBERG TERMINAL FEED', style: TextStyle(color: Colors.white24, fontSize: 8, fontWeight: FontWeight.bold, letterSpacing: 1)),
+            ),
+          ],
+        ),
         const SizedBox(height: 16),
         Container(
-          height: 200,
+          height: 220,
           width: double.infinity,
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: AppTheme.glassCardColor,
+            color: const Color(0xFF0D0D0D),
             borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Colors.white10),
+            border: Border.all(color: Colors.white.withOpacity(0.05)),
           ),
-          child: const Center(
-            child: Text('Chart Placeholder', style: TextStyle(color: Colors.grey)),
+          child: Column(
+            children: [
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: List.generate(10, (index) => Container(
+                    width: 20,
+                    height: ((40 + (index * 15)) % 150.0).toDouble(),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [AppTheme.primaryColor, AppTheme.primaryColor.withOpacity(0.1)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  )),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text('JAN', style: TextStyle(color: Colors.white24, fontSize: 10, fontWeight: FontWeight.bold)),
+                  Text('MAY', style: TextStyle(color: Colors.white24, fontSize: 10, fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ],
           ),
         ),
       ],
@@ -118,6 +158,38 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
         Expanded(child: Text(title, style: const TextStyle(fontSize: 14))),
         Text(percent, style: const TextStyle(fontWeight: FontWeight.bold)),
       ],
+    );
+  }
+
+  Widget _buildSecondaryMarketIntent() {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: AppTheme.goldColor.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: AppTheme.goldColor.withOpacity(0.2)),
+      ),
+      child: Column(
+        children: [
+          const Text('Secondary Market Liquidity', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          const SizedBox(height: 8),
+          const Text('Gauging interest for peer-to-peer Sukuk trading', style: TextStyle(color: Colors.white30, fontSize: 12)),
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton(
+              onPressed: () {},
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: AppTheme.goldColor),
+                foregroundColor: AppTheme.goldColor,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              ),
+              child: const Text('Signal Trading Intent', style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
