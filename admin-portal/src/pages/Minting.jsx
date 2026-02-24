@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import useAdminStore from '../store/useAdminStore';
 import { Coins, AlertCircle, CheckCircle } from 'lucide-react';
 
 const Minting = () => {
-  const assets = useAdminStore((state) => state.assets.filter(a => a.status === 'Onboarded'));
+  const allAssets = useAdminStore((state) => state.assets);
+  const assets = useMemo(() => allAssets.filter(a => a.status === 'Onboarded'), [allAssets]);
   const [selectedAssetId, setSelectedAssetId] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
