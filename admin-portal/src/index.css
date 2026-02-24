@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #008F58;
+  --color-dark: #0A0A0A;
+}
 
 body {
   @apply bg-dark text-white font-sans;
