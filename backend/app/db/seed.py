@@ -18,7 +18,10 @@ def seed_db():
             is_active=True,
             is_verified=True,
             is_admin=False,
-            wallet_address="0x1234567890123456789012345678901234567890"
+            wallet_address="0x1234567890123456789012345678901234567890",
+            kes_balance=Decimal("142500.0000"),
+            usd_balance=Decimal("1080.0000"),
+            kyc_status="Verified"
         )
         db.add(test_user)
 
