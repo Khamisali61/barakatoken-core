@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from app.api.v1.endpoints import auth, assets, payments, admin, websocket, analytics
+from app.api.v1.endpoints import auth, assets, payments, admin, websocket, analytics, users
 from app.core.json_encoder import CustomJSONResponse
 
 app = FastAPI(
@@ -18,6 +18,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
+app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
 app.include_router(assets.router, prefix="/api/v1/assets", tags=["assets"])
 app.include_router(payments.router, prefix="/api/v1/payments", tags=["payments"])
 app.include_router(admin.router, prefix="/api/v1/admin", tags=["admin"])

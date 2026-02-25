@@ -6,6 +6,7 @@ class UserBase(BaseModel):
     is_active: Optional[bool] = True
     is_admin: Optional[bool] = False
     full_name: Optional[str] = None
+    phone_number: Optional[str] = None
 
 class UserCreate(UserBase):
     email: EmailStr

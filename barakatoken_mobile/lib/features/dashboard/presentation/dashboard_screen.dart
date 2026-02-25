@@ -5,6 +5,7 @@ import 'package:barakatoken_mobile/features/marketplace/data/asset_provider.dart
 import 'package:barakatoken_mobile/features/marketplace/presentation/marketplace_screen.dart';
 import 'package:barakatoken_mobile/features/portfolio/presentation/portfolio_analytics_screen.dart';
 import 'package:barakatoken_mobile/features/dashboard/presentation/wallet_screen.dart';
+import 'package:barakatoken_mobile/features/auth/presentation/security_settings_screen.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -85,7 +86,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         ),
         Row(
           children: [
-            _buildIconButton(Icons.search),
+            _buildIconButton(Icons.security, onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => const SecuritySettingsScreen()));
+            }),
             const SizedBox(width: 8),
             _buildIconButton(Icons.notifications_outlined, hasNotification: true),
           ],
@@ -94,34 +97,38 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     );
   }
 
-  Widget _buildIconButton(IconData icon, {bool hasNotification = false}) {
-    return Stack(
-      children: [
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: AppTheme.glassCardColor,
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.white10),
+  Widget _buildIconButton(IconData icon, {bool hasNotification = false, VoidCallback? onTap}) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: Stack(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: AppTheme.glassCardColor,
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white10),
+            ),
+            child: Icon(icon, size: 22),
           ),
-          child: Icon(icon, size: 22),
-        ),
-        if (hasNotification)
-          Positioned(
-            top: 10,
-            right: 10,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: BoxDecoration(
-                color: AppTheme.primaryColor,
-                shape: BoxShape.circle,
-                border: Border.all(color: AppTheme.backgroundColor, width: 2),
+          if (hasNotification)
+            Positioned(
+              top: 10,
+              right: 10,
+              child: Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: AppTheme.primaryColor,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: AppTheme.backgroundColor, width: 2),
+                ),
               ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 

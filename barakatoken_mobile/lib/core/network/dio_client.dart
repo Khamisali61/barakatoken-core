@@ -4,8 +4,8 @@ class DioClient {
   static Dio get instance {
     final dio = Dio(
       BaseOptions(
-        baseUrl: 'http://10.0.2.2:8000/api/v1', // Standard Android emulator address for localhost
-        connectTimeout: const Duration(seconds: 5),
+        baseUrl: 'http://173.249.41.232:8000/api/v1', // New VPS IP Address
+        connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 3),
       ),
     );
