@@ -396,8 +396,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ),
             )).toList(),
           ),
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, stack) => Text('Error loading assets: $err'),
+          loading: () => const Center(child: CircularProgressIndicator(color: AppTheme.goldColor)),
+          error: (err, stack) => Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: Center(
+              child: Column(
+                children: [
+                  const Text('Unable to connect to market feed.', style: TextStyle(color: Colors.white24, fontSize: 12)),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () => ref.refresh(assetsProvider),
+                    child: const Text('Tap to Retry', style: TextStyle(color: AppTheme.goldColor, fontWeight: FontWeight.bold, fontSize: 13)),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ],
     );

@@ -62,8 +62,23 @@ class MarketplaceScreen extends ConsumerWidget {
                   );
                 },
               ),
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (err, stack) => Center(child: Text('Error: $err')),
+              loading: () => const Center(child: CircularProgressIndicator(color: AppTheme.goldColor)),
+              error: (err, stack) => Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.wifi_off_outlined, size: 48, color: Colors.white24),
+                    const SizedBox(height: 16),
+                    Text('Network connection lost.', style: TextStyle(color: Colors.white54, fontSize: 14)),
+                    const SizedBox(height: 24),
+                    OutlinedButton(
+                      onPressed: () => ref.refresh(assetsProvider),
+                      style: OutlinedButton.styleFrom(side: const BorderSide(color: AppTheme.goldColor)),
+                      child: const Text('Retry Connection', style: TextStyle(color: AppTheme.goldColor, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ],
