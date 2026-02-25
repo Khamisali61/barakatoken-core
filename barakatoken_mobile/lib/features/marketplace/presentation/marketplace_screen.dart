@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:barakatoken_mobile/core/theme/app_theme.dart';
 import 'package:barakatoken_mobile/features/marketplace/data/asset_provider.dart';
+import 'package:barakatoken_mobile/features/dashboard/data/wallet_service.dart';
 
 class MarketplaceScreen extends ConsumerWidget {
   const MarketplaceScreen({super.key});
@@ -50,6 +51,9 @@ class MarketplaceScreen extends ConsumerWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 24),
                     child: _buildAssetCard(
+                      context,
+                      ref,
+                      asset.id,
                       asset.title,
                       asset.location,
                       '${(asset.expectedIrr * 100).toStringAsFixed(1)}% p.a.',
@@ -58,6 +62,7 @@ class MarketplaceScreen extends ConsumerWidget {
                       asset.riskLevel,
                       1 - (asset.availableTokens / asset.totalTokens),
                       asset.imageUrl ?? '',
+                      asset.minInvestment,
                     ),
                   );
                 },
@@ -131,7 +136,7 @@ class MarketplaceScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildAssetCard(String title, String location, String yield, String term, String minInvest, String risk, double progress, String imageUrl) {
+  Widget _buildAssetCard(BuildContext context, WidgetRef ref, int assetId, String title, String location, String yield, String term, String minInvest, String risk, double progress, String imageUrl, double minInvestmentValue) {
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.glassCardColor,
@@ -224,7 +229,14 @@ class MarketplaceScreen extends ConsumerWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      final success = await ref.read(walletServiceProvider).invest(assetId, minInvestmentValue);
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(success ? 'Investment Successful!' : 'Investment Failed - Check Balance')),
+                        );
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.primaryColor,
                       foregroundColor: Colors.white,

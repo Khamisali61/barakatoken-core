@@ -5,6 +5,7 @@ import 'package:barakatoken_mobile/core/widgets/premium_widgets.dart';
 import 'package:barakatoken_mobile/features/auth/presentation/registration_screen.dart';
 import 'package:barakatoken_mobile/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:barakatoken_mobile/features/auth/data/auth_service.dart';
+import 'package:barakatoken_mobile/features/auth/data/auth_provider.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -88,10 +89,28 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
               const SizedBox(height: 48),
               GoldButton(
-                label: 'Sign In',
-                onPressed: () {
-                  // Simulate login and navigate to dashboard
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const DashboardScreen()));
+                label: ref.watch(authProvider).status == AuthStatus.loading ? 'Signing In...' : 'Sign In',
+                onPressed: ref.watch(authProvider).status == AuthStatus.loading ? null : () async {
+                  if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Please enter both email and password')),
+                    );
+                    return;
+                  }
+
+                  final success = await ref.read(authProvider.notifier).login(
+                    _emailController.text,
+                    _passwordController.text,
+                  );
+
+                  if (success && mounted) {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const DashboardScreen()));
+                  } else if (mounted) {
+                    final error = ref.read(authProvider).error;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(error ?? 'Login failed')),
+                    );
+                  }
                 },
               ),
               if (_showBiometrics) ...[

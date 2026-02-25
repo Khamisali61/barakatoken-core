@@ -85,7 +85,13 @@ class MpesaService:
                 if item.get("Name") == "MpesaReceiptNumber":
                     transaction.mpesa_receipt_number = item.get("Value")
 
-            # TODO: Trigger token minting logic here
+            # Update User Balance
+            from app.models.user import User
+            user = db.query(User).filter(User.id == transaction.user_id).first()
+            if user:
+                user.kes_balance += transaction.amount
+
+            # TODO: Trigger token minting logic here if it was an investment
         else:
             transaction.status = "Failed"
 
@@ -94,5 +100,33 @@ class MpesaService:
 
         db.commit()
         return {"status": "success"}
+
+    def mock_topup(self, db: Session, user_id: int, amount: float):
+        from app.models.user import User
+        import uuid
+
+        user = db.query(User).filter(User.id == user_id).first()
+        if not user:
+            return {"status": "error", "message": "User not found"}
+
+        # Record mock transaction
+        transaction = MpesaTransaction(
+            user_id=user_id,
+            merchant_request_id=f"MOCK-{uuid.uuid4()}",
+            checkout_request_id=f"MOCK-{uuid.uuid4()}",
+            amount=amount,
+            phone_number=user.phone_number or "MOCK",
+            status="Success",
+            mpesa_receipt_number=f"MOCK{uuid.uuid4().hex[:6].upper()}",
+            result_code=0,
+            result_desc="Mock Success"
+        )
+        db.add(transaction)
+
+        # Update Balance
+        user.kes_balance += amount
+
+        db.commit()
+        return {"status": "success", "new_balance": float(user.kes_balance)}
 
 mpesa_service = MpesaService()

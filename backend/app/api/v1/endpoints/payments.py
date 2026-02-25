@@ -22,3 +22,12 @@ async def stk_push(
 ) -> Any:
     result = mpesa_service.initiate_stk_push(db, user_id, amount, phone_number)
     return result
+
+@router.post("/mock-topup")
+async def mock_topup(
+    amount: float,
+    user_id: int, # In production this would come from current_user
+    db: Session = Depends(get_db)
+) -> Any:
+    result = mpesa_service.mock_topup(db, user_id, amount)
+    return result

@@ -6,6 +6,7 @@ import 'package:barakatoken_mobile/features/marketplace/presentation/marketplace
 import 'package:barakatoken_mobile/features/portfolio/presentation/portfolio_analytics_screen.dart';
 import 'package:barakatoken_mobile/features/dashboard/presentation/wallet_screen.dart';
 import 'package:barakatoken_mobile/features/auth/presentation/security_settings_screen.dart';
+import 'package:barakatoken_mobile/features/dashboard/data/user_provider.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -60,6 +61,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   Widget _buildHeader() {
+    final userAsync = ref.watch(userProfileProvider);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -77,9 +80,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             const SizedBox(width: 12),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Welcome back', style: TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold)),
-                Text('Ahmed Hassan', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              children: [
+                const Text('Welcome back', style: TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold)),
+                userAsync.when(
+                  data: (user) => Text(user.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                  loading: () => const SizedBox(height: 14, width: 40, child: LinearProgressIndicator(color: AppTheme.goldColor)),
+                  error: (_, __) => const Text('Investor', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                ),
               ],
             ),
           ],
@@ -90,7 +97,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (_) => const SecuritySettingsScreen()));
             }),
             const SizedBox(width: 8),
-            _buildIconButton(Icons.notifications_outlined, hasNotification: true),
+            _buildIconButton(Icons.notifications_outlined, hasNotification: true, onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('No new notifications')),
+              );
+            }),
           ],
         ),
       ],
@@ -133,6 +144,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   Widget _buildPortfolioCard() {
+    final userAsync = ref.watch(userProfileProvider);
+
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -164,14 +177,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             ],
           ),
           const SizedBox(height: 8),
-          const Text('KES 1,250,000.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
-          const Text('≈ 9,450.00 USD Equivalent', style: TextStyle(color: Colors.grey, fontSize: 12)),
+          userAsync.when(
+            data: (user) => Text('KES ${user.kesBalance.toStringAsFixed(2)}', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
+            loading: () => const Text('KES ...', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
+            error: (_, __) => const Text('KES 0.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
+          ),
+          userAsync.when(
+            data: (user) => Text('≈ ${(user.kesBalance / 132).toStringAsFixed(2)} USD Equivalent', style: const TextStyle(color: Colors.grey, fontSize: 12)),
+            loading: () => const Text('≈ ... USD Equivalent', style: TextStyle(color: Colors.grey, fontSize: 12)),
+            error: (_, __) => const Text('≈ 0.00 USD Equivalent', style: TextStyle(color: Colors.grey, fontSize: 12)),
+          ),
           const SizedBox(height: 24),
           Row(
             children: [
               Expanded(
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () => setState(() => _selectedIndex = 1),
                   icon: const Icon(Icons.add_circle, size: 18),
                   label: const Text('Invest'),
                   style: ElevatedButton.styleFrom(
@@ -185,7 +206,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               const SizedBox(width: 12),
               Expanded(
                 child: OutlinedButton.icon(
-                  onPressed: () {},
+                  onPressed: () => setState(() => _selectedIndex = 2),
                   icon: const Icon(Icons.account_balance_wallet, size: 18),
                   label: const Text('Withdraw'),
                   style: OutlinedButton.styleFrom(
@@ -231,7 +252,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Zakat purification service coming soon!')),
+              );
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: AppTheme.primaryColor,

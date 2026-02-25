@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:barakatoken_mobile/core/theme/app_theme.dart';
 import 'package:barakatoken_mobile/core/widgets/premium_widgets.dart';
+import 'package:barakatoken_mobile/features/dashboard/data/user_provider.dart';
+import 'package:barakatoken_mobile/features/dashboard/data/wallet_service.dart';
 
-class WalletScreen extends StatelessWidget {
+class WalletScreen extends ConsumerWidget {
   const WalletScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Baraka Wallet', style: TextStyle(fontWeight: FontWeight.w800)),
@@ -16,9 +19,9 @@ class WalletScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            _buildBalanceSwitcher(),
+            _buildBalanceSwitcher(ref),
             const SizedBox(height: 32),
-            _buildActionGrid(),
+            _buildActionGrid(context, ref),
             const SizedBox(height: 32),
             _buildRecentTransactions(),
           ],
@@ -27,15 +30,25 @@ class WalletScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBalanceSwitcher() {
+  Widget _buildBalanceSwitcher(WidgetRef ref) {
+    final userAsync = ref.watch(userProfileProvider);
+
     return Column(
       children: [
         SizedBox(
           height: 200,
           child: PageView(
             children: [
-              _buildBalanceCard('KES Balance', 'KES 142,500.00', 'Kenyan Shilling'),
-              _buildBalanceCard('USD Balance', 'USD 1,080.00', 'US Dollar'),
+              userAsync.when(
+                data: (user) => _buildBalanceCard('KES Balance', 'KES ${user.kesBalance.toStringAsFixed(2)}', 'Kenyan Shilling'),
+                loading: () => _buildBalanceCard('KES Balance', 'KES ...', 'Kenyan Shilling'),
+                error: (_, __) => _buildBalanceCard('KES Balance', 'KES 0.00', 'Kenyan Shilling'),
+              ),
+              userAsync.when(
+                data: (user) => _buildBalanceCard('USD Balance', 'USD ${user.usdBalance.toStringAsFixed(2)}', 'US Dollar'),
+                loading: () => _buildBalanceCard('USD Balance', 'USD ...', 'US Dollar'),
+                error: (_, __) => _buildBalanceCard('USD Balance', 'USD 0.00', 'US Dollar'),
+              ),
             ],
           ),
         ),
@@ -68,7 +81,7 @@ class WalletScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildActionGrid() {
+  Widget _buildActionGrid(BuildContext context, WidgetRef ref) {
     return GridView.count(
       crossAxisCount: 2,
       shrinkWrap: true,
@@ -77,27 +90,75 @@ class WalletScreen extends StatelessWidget {
       crossAxisSpacing: 16,
       childAspectRatio: 2.5,
       children: [
-        _buildSmallAction('Deposit', Icons.add_circle_outline),
-        _buildSmallAction('Withdraw', Icons.outbox_outlined),
-        _buildSmallAction('Exchange', Icons.swap_horiz),
-        _buildSmallAction('Analytics', Icons.analytics_outlined),
+        _buildSmallAction(context, 'Deposit', Icons.add_circle_outline, () => _showTopupDialog(context, ref)),
+        _buildSmallAction(context, 'Withdraw', Icons.outbox_outlined, () {}),
+        _buildSmallAction(context, 'Exchange', Icons.swap_horiz, () {}),
+        _buildSmallAction(context, 'Analytics', Icons.analytics_outlined, () {}),
       ],
     );
   }
 
-  Widget _buildSmallAction(String label, IconData icon) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white10),
+  Widget _buildSmallAction(BuildContext context, String label, IconData icon, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.05),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.white10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 18, color: AppTheme.primaryColor),
+            const SizedBox(width: 8),
+            Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+          ],
+        ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 18, color: AppTheme.primaryColor),
-          const SizedBox(width: 8),
-          Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+    );
+  }
+
+  void _showTopupDialog(BuildContext context, WidgetRef ref) {
+    final controller = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: AppTheme.backgroundColor,
+        title: const Text('Mock M-Pesa Top-up', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        content: TextField(
+          controller: controller,
+          keyboardType: TextInputType.number,
+          style: const TextStyle(color: Colors.white),
+          decoration: const InputDecoration(
+            hintText: 'Enter amount (KES)',
+            hintStyle: TextStyle(color: Colors.white24),
+            enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white10)),
+            focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppTheme.goldColor)),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel', style: TextStyle(color: Colors.white30)),
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              final amount = double.tryParse(controller.text);
+              if (amount != null && amount > 0) {
+                final success = await ref.read(walletServiceProvider).mockTopup(amount);
+                if (context.mounted) {
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(success ? 'Top-up successful!' : 'Top-up failed')),
+                  );
+                }
+              }
+            },
+            style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primaryColor),
+            child: const Text('Top-up Now', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          ),
         ],
       ),
     );

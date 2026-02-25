@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:barakatoken_mobile/core/theme/app_theme.dart';
 import 'package:barakatoken_mobile/core/widgets/premium_widgets.dart';
+import 'package:barakatoken_mobile/features/auth/data/auth_provider.dart';
+import 'package:barakatoken_mobile/features/dashboard/presentation/dashboard_screen.dart';
 
 class RegistrationScreen extends ConsumerStatefulWidget {
   const RegistrationScreen({super.key});
@@ -43,10 +45,28 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
               _buildTextField('Password', _passwordController, Icons.lock_outline, isPassword: true),
               const SizedBox(height: 48),
               GoldButton(
-                label: 'Sign Up',
-                onPressed: () {
+                label: ref.watch(authProvider).status == AuthStatus.loading ? 'Creating Account...' : 'Sign Up',
+                onPressed: ref.watch(authProvider).status == AuthStatus.loading ? null : () async {
                   if (_formKey.currentState!.validate()) {
-                    // TODO: Implement registration logic
+                    final success = await ref.read(authProvider.notifier).register(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      fullName: _fullNameController.text,
+                      phoneNumber: _phoneController.text,
+                    );
+
+                    if (success && mounted) {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (_) => const DashboardScreen()),
+                        (route) => false,
+                      );
+                    } else if (mounted) {
+                      final error = ref.read(authProvider).error;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(error ?? 'Registration failed')),
+                      );
+                    }
                   }
                 },
               ),
