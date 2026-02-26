@@ -19,7 +19,11 @@ class BlockchainService:
 
         # Load contract data (ABI and Bytecode)
         # Note: In production, these should be pre-compiled and stored
-        contract_path = os.path.join(os.path.dirname(__file__), "../../../blockchain/artifacts/contracts/SukukToken.sol/SukukToken.json")
+        # Check mounted volume path first (for Docker), then local relative path
+        contract_path = "/blockchain/artifacts/contracts/SukukToken.sol/SukukToken.json"
+        if not os.path.exists(contract_path):
+             contract_path = os.path.join(os.path.dirname(__file__), "../../../blockchain/artifacts/contracts/SukukToken.sol/SukukToken.json")
+
         if not os.path.exists(contract_path):
              print(f"Contract artifacts not found at {contract_path}. Skipping.")
              return "0xArtifactsNotFound"

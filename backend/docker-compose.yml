@@ -18,6 +18,7 @@ services:
     volumes:
       - .:/code
       - ./media:/code/media
+      - ../blockchain:/blockchain
     ports:
       - "8000:8000"
     environment:

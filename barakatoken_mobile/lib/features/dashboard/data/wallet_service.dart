@@ -8,14 +8,12 @@ class WalletService {
 
   WalletService(this._ref);
 
-  Future<bool> mockTopup(double amount) async {
+  Future<bool> topUp(double amount) async {
     try {
-      final user = await _ref.read(userProfileProvider.future);
       final response = await DioClient.instance.post(
         '/payments/mock-topup',
         queryParameters: {
           'amount': amount,
-          'user_id': user.id,
         },
       );
 

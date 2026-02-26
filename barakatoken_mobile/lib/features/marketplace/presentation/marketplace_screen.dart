@@ -3,12 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:barakatoken_mobile/core/theme/app_theme.dart';
 import 'package:barakatoken_mobile/features/marketplace/data/asset_provider.dart';
 import 'package:barakatoken_mobile/features/dashboard/data/wallet_service.dart';
+import 'package:barakatoken_mobile/features/dashboard/data/user_provider.dart';
 
-class MarketplaceScreen extends ConsumerWidget {
+class MarketplaceScreen extends ConsumerStatefulWidget {
   const MarketplaceScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MarketplaceScreen> createState() => _MarketplaceScreenState();
+}
+
+class _MarketplaceScreenState extends ConsumerState<MarketplaceScreen> {
+  bool _isInvesting = false;
+
+  @override
+  Widget build(BuildContext context) {
     final assetsAsync = ref.watch(assetsProvider);
     return Scaffold(
       appBar: AppBar(
@@ -229,9 +237,22 @@ class MarketplaceScreen extends ConsumerWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () async {
+                    onPressed: _isInvesting ? null : () async {
+                      // Check user balance first
+                      final userAsync = ref.read(userProfileProvider);
+                      final currentBalance = userAsync.value?.kesBalance ?? 0.0;
+
+                      if (currentBalance < minInvestmentValue) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Insufficient KES balance. Please top up your wallet.')),
+                        );
+                        return;
+                      }
+
+                      setState(() => _isInvesting = true);
                       final success = await ref.read(walletServiceProvider).invest(assetId, minInvestmentValue);
-                      if (context.mounted) {
+                      if (mounted) {
+                        setState(() => _isInvesting = false);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(success ? 'Investment Successful!' : 'Investment Failed - Check Balance')),
                         );
@@ -243,7 +264,9 @@ class MarketplaceScreen extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     ),
-                    child: const Text('Invest Now', style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: _isInvesting
+                      ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                      : const Text('Invest Now', style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
               ],

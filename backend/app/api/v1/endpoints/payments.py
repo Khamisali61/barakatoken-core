@@ -2,6 +2,8 @@ from typing import Any
 from fastapi import APIRouter, Depends, Request
 from sqlalchemy.orm import Session
 from app.db.session import get_db
+from app.api import deps
+from app.models.user import User
 from app.services.mpesa import mpesa_service
 
 router = APIRouter()
@@ -26,8 +28,8 @@ async def stk_push(
 @router.post("/mock-topup")
 async def mock_topup(
     amount: float,
-    user_id: int, # In production this would come from current_user
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(deps.get_current_active_user),
 ) -> Any:
-    result = mpesa_service.mock_topup(db, user_id, amount)
+    result = mpesa_service.mock_topup(db, current_user.id, amount)
     return result
