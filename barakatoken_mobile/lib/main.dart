@@ -5,11 +5,7 @@ import 'package:barakatoken_mobile/features/dashboard/presentation/dashboard_scr
 import 'package:barakatoken_mobile/features/auth/presentation/login_screen.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: BarakaTokenApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: BarakaTokenApp()));
 }
 
 class BarakaTokenApp extends StatelessWidget {

@@ -8,7 +8,10 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Portfolio Analytics', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text(
+          'Portfolio Analytics',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios, size: 20),
@@ -48,9 +51,15 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text('Total Net Profit', style: TextStyle(color: Colors.grey, fontSize: 14)),
+          const Text(
+            'Total Net Profit',
+            style: TextStyle(color: Colors.grey, fontSize: 14),
+          ),
           const SizedBox(height: 8),
-          const Text('KES 154,200.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
+          const Text(
+            'KES 154,200.00',
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800),
+          ),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -70,7 +79,10 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
       children: [
         Text(label, style: const TextStyle(color: Colors.grey, fontSize: 12)),
         const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        Text(
+          value,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
       ],
     );
   }
@@ -82,11 +94,25 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Yield History', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text(
+              'Yield History',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              decoration: BoxDecoration(color: Colors.white.withOpacity(0.05), borderRadius: BorderRadius.circular(6)),
-              child: const Text('BLOOMBERG TERMINAL FEED', style: TextStyle(color: Colors.white24, fontSize: 8, fontWeight: FontWeight.bold, letterSpacing: 1)),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.05),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: const Text(
+                'BLOOMBERG TERMINAL FEED',
+                style: TextStyle(
+                  color: Colors.white24,
+                  fontSize: 8,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                ),
+              ),
             ),
           ],
         ),
@@ -106,26 +132,46 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: List.generate(10, (index) => Container(
-                    width: 20,
-                    height: ((40 + (index * 15)) % 150.0).toDouble(),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [AppTheme.primaryColor, AppTheme.primaryColor.withOpacity(0.1)],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
+                  children: List.generate(
+                    10,
+                    (index) => Container(
+                      width: 20,
+                      height: ((40 + (index * 15)) % 150.0).toDouble(),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            AppTheme.primaryColor,
+                            AppTheme.primaryColor.withOpacity(0.1),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                        borderRadius: BorderRadius.circular(4),
                       ),
-                      borderRadius: BorderRadius.circular(4),
                     ),
-                  )),
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Text('JAN', style: TextStyle(color: Colors.white24, fontSize: 10, fontWeight: FontWeight.bold)),
-                  Text('MAY', style: TextStyle(color: Colors.white24, fontSize: 10, fontWeight: FontWeight.bold)),
+                  Text(
+                    'JAN',
+                    style: TextStyle(
+                      color: Colors.white24,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'MAY',
+                    style: TextStyle(
+                      color: Colors.white24,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -139,9 +185,16 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Asset Allocation', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const Text(
+          'Asset Allocation',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 16),
-        _buildAllocationItem('Nairobi Green Housing', '60%', AppTheme.primaryColor),
+        _buildAllocationItem(
+          'Nairobi Green Housing',
+          '60%',
+          AppTheme.primaryColor,
+        ),
         const SizedBox(height: 12),
         _buildAllocationItem('Mombasa Solar Farm', '25%', Colors.tealAccent),
         const SizedBox(height: 12),
@@ -153,7 +206,11 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
   Widget _buildAllocationItem(String title, String percent, Color color) {
     return Row(
       children: [
-        Container(width: 12, height: 12, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
+        Container(
+          width: 12,
+          height: 12,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
         const SizedBox(width: 12),
         Expanded(child: Text(title, style: const TextStyle(fontSize: 14))),
         Text(percent, style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -171,9 +228,15 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text('Secondary Market Liquidity', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          const Text(
+            'Secondary Market Liquidity',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
           const SizedBox(height: 8),
-          const Text('Gauging interest for peer-to-peer Sukuk trading', style: TextStyle(color: Colors.white30, fontSize: 12)),
+          const Text(
+            'Gauging interest for peer-to-peer Sukuk trading',
+            style: TextStyle(color: Colors.white30, fontSize: 12),
+          ),
           const SizedBox(height: 24),
           SizedBox(
             width: double.infinity,
@@ -183,9 +246,14 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
                 side: const BorderSide(color: AppTheme.goldColor),
                 foregroundColor: AppTheme.goldColor,
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
               ),
-              child: const Text('Signal Trading Intent', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: const Text(
+                'Signal Trading Intent',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ),
         ],
@@ -208,8 +276,14 @@ class PortfolioAnalyticsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Shariah Compliance Verified', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-                Text('All assets reviewed by Fatwa Committee', style: TextStyle(color: Colors.grey, fontSize: 12)),
+                Text(
+                  'Shariah Compliance Verified',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                Text(
+                  'All assets reviewed by Fatwa Committee',
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                ),
               ],
             ),
           ),

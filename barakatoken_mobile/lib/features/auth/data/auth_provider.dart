@@ -15,7 +15,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
   final AuthService _authService;
   final Ref _ref;
 
-  AuthNotifier(this._authService, this._ref) : super(AuthState(status: AuthStatus.loading)) {
+  AuthNotifier(this._authService, this._ref)
+    : super(AuthState(status: AuthStatus.loading)) {
     checkAuth();
   }
 
@@ -36,7 +37,10 @@ class AuthNotifier extends StateNotifier<AuthState> {
       _ref.invalidate(userProfileProvider);
       return true;
     } else {
-      state = AuthState(status: AuthStatus.unauthenticated, error: "Invalid credentials");
+      state = AuthState(
+        status: AuthStatus.unauthenticated,
+        error: "Invalid credentials",
+      );
       return false;
     }
   }
@@ -59,7 +63,10 @@ class AuthNotifier extends StateNotifier<AuthState> {
       _ref.invalidate(userProfileProvider);
       return true;
     } else {
-      state = AuthState(status: AuthStatus.unauthenticated, error: "Registration failed");
+      state = AuthState(
+        status: AuthStatus.unauthenticated,
+        error: "Registration failed",
+      );
       return false;
     }
   }

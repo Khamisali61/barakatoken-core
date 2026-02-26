@@ -15,9 +15,16 @@ class BiometricLoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              const Icon(Icons.shield_outlined, size: 80, color: AppTheme.goldColor),
+              const Icon(
+                Icons.shield_outlined,
+                size: 80,
+                color: AppTheme.goldColor,
+              ),
               const SizedBox(height: 32),
-              const Text('Secure Access', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900)),
+              const Text(
+                'Secure Access',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900),
+              ),
               const SizedBox(height: 12),
               const Text(
                 'Unlock your private banking suite using Biometrics for maximum security.',
@@ -35,7 +42,13 @@ class BiometricLoginScreen extends StatelessWidget {
               const SizedBox(height: 24),
               TextButton(
                 onPressed: () {},
-                child: const Text('Use PIN instead', style: TextStyle(color: Colors.white30, fontWeight: FontWeight.bold)),
+                child: const Text(
+                  'Use PIN instead',
+                  style: TextStyle(
+                    color: Colors.white30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ],
           ),
@@ -52,16 +65,34 @@ class BiometricLoginScreen extends StatelessWidget {
           Stack(
             alignment: Alignment.center,
             children: const [
-              SizedBox(width: 44, height: 44, child: CircularProgressIndicator(value: 0.7, color: AppTheme.primaryColor, strokeWidth: 3)),
-              Icon(Icons.person_search_outlined, size: 20, color: AppTheme.primaryColor),
+              SizedBox(
+                width: 44,
+                height: 44,
+                child: CircularProgressIndicator(
+                  value: 0.7,
+                  color: AppTheme.primaryColor,
+                  strokeWidth: 3,
+                ),
+              ),
+              Icon(
+                Icons.person_search_outlined,
+                size: 20,
+                color: AppTheme.primaryColor,
+              ),
             ],
           ),
           const SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              Text('KYC Verification', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-              Text('Document Review: 70% Complete', style: TextStyle(color: Colors.white30, fontSize: 12)),
+              Text(
+                'KYC Verification',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              ),
+              Text(
+                'Document Review: 70% Complete',
+                style: TextStyle(color: Colors.white30, fontSize: 12),
+              ),
             ],
           ),
         ],

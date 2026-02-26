@@ -12,9 +12,7 @@ class WalletService {
     try {
       final response = await DioClient.instance.post(
         '/payments/mock-topup',
-        queryParameters: {
-          'amount': amount,
-        },
+        queryParameters: {'amount': amount},
       );
 
       if (response.statusCode == 200) {
@@ -32,9 +30,7 @@ class WalletService {
     try {
       final response = await DioClient.instance.post(
         '/assets/$assetId/invest',
-        queryParameters: {
-          'amount': amount,
-        },
+        queryParameters: {'amount': amount},
       );
 
       if (response.statusCode == 200) {

@@ -73,7 +73,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               height: 40,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: AppTheme.primaryColor.withOpacity(0.3)),
+                border: Border.all(
+                  color: AppTheme.primaryColor.withOpacity(0.3),
+                ),
               ),
               child: const Icon(Icons.person, color: Colors.white70),
             ),
@@ -81,11 +83,31 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Welcome back', style: TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold)),
+                const Text(
+                  'Welcome back',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 userAsync.when(
-                  data: (user) => Text(user.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                  loading: () => const SizedBox(height: 14, width: 40, child: LinearProgressIndicator(color: AppTheme.goldColor)),
-                  error: (_, __) => const Text('Investor', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                  data: (user) => Text(
+                    user.fullName,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  loading: () => const SizedBox(
+                    height: 14,
+                    width: 40,
+                    child: LinearProgressIndicator(color: AppTheme.goldColor),
+                  ),
+                  error: (_, __) => const Text(
+                    'Investor',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
@@ -93,22 +115,38 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         ),
         Row(
           children: [
-            _buildIconButton(Icons.security, onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => const SecuritySettingsScreen()));
-            }),
+            _buildIconButton(
+              Icons.security,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const SecuritySettingsScreen(),
+                  ),
+                );
+              },
+            ),
             const SizedBox(width: 8),
-            _buildIconButton(Icons.notifications_outlined, hasNotification: true, onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('No new notifications')),
-              );
-            }),
+            _buildIconButton(
+              Icons.notifications_outlined,
+              hasNotification: true,
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('No new notifications')),
+                );
+              },
+            ),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildIconButton(IconData icon, {bool hasNotification = false, VoidCallback? onTap}) {
+  Widget _buildIconButton(
+    IconData icon, {
+    bool hasNotification = false,
+    VoidCallback? onTap,
+  }) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
@@ -159,7 +197,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Total Portfolio Value', style: TextStyle(color: Colors.grey, fontSize: 14)),
+              const Text(
+                'Total Portfolio Value',
+                style: TextStyle(color: Colors.grey, fontSize: 14),
+              ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
@@ -168,9 +209,20 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
                 child: Row(
                   children: const [
-                    Icon(Icons.trending_up, color: AppTheme.primaryColor, size: 14),
+                    Icon(
+                      Icons.trending_up,
+                      color: AppTheme.primaryColor,
+                      size: 14,
+                    ),
                     SizedBox(width: 4),
-                    Text('+4.2%', style: TextStyle(color: AppTheme.primaryColor, fontSize: 12, fontWeight: FontWeight.bold)),
+                    Text(
+                      '+4.2%',
+                      style: TextStyle(
+                        color: AppTheme.primaryColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -178,14 +230,32 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           ),
           const SizedBox(height: 8),
           userAsync.when(
-            data: (user) => Text('KES ${user.kesBalance.toStringAsFixed(2)}', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
-            loading: () => const Text('KES ...', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
-            error: (_, __) => const Text('KES 0.00', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
+            data: (user) => Text(
+              'KES ${user.kesBalance.toStringAsFixed(2)}',
+              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800),
+            ),
+            loading: () => const Text(
+              'KES ...',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800),
+            ),
+            error: (_, __) => const Text(
+              'KES 0.00',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800),
+            ),
           ),
           userAsync.when(
-            data: (user) => Text('≈ ${(user.kesBalance / 132).toStringAsFixed(2)} USD Equivalent', style: const TextStyle(color: Colors.grey, fontSize: 12)),
-            loading: () => const Text('≈ ... USD Equivalent', style: TextStyle(color: Colors.grey, fontSize: 12)),
-            error: (_, __) => const Text('≈ 0.00 USD Equivalent', style: TextStyle(color: Colors.grey, fontSize: 12)),
+            data: (user) => Text(
+              '≈ ${(user.kesBalance / 132).toStringAsFixed(2)} USD Equivalent',
+              style: const TextStyle(color: Colors.grey, fontSize: 12),
+            ),
+            loading: () => const Text(
+              '≈ ... USD Equivalent',
+              style: TextStyle(color: Colors.grey, fontSize: 12),
+            ),
+            error: (_, __) => const Text(
+              '≈ 0.00 USD Equivalent',
+              style: TextStyle(color: Colors.grey, fontSize: 12),
+            ),
           ),
           const SizedBox(height: 24),
           Row(
@@ -199,7 +269,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     backgroundColor: AppTheme.primaryColor,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
               ),
@@ -213,7 +285,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     foregroundColor: Colors.white,
                     side: const BorderSide(color: Colors.white10),
                     padding: const EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
               ),
@@ -246,24 +320,40 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Zakat Due', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                Text('KES 31,250 ready for purification', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                Text(
+                  'Zakat Due',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'KES 31,250 ready for purification',
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                ),
               ],
             ),
           ),
           ElevatedButton(
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Zakat purification service coming soon!')),
+                const SnackBar(
+                  content: Text('Zakat purification service coming soon!'),
+                ),
               );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: AppTheme.primaryColor,
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
-            child: const Text('Pay Now', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+            child: const Text(
+              'Pay Now',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+            ),
           ),
         ],
       ),
@@ -279,13 +369,31 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       mainAxisSpacing: 16,
       childAspectRatio: 1.5,
       children: [
-        _buildStatCard('Active Sukuks', '12', 'Across 3 industries', Icons.token, AppTheme.primaryColor),
-        _buildStatCard('Est. ROI (P.A)', '14.5%', 'Weighted average', Icons.insights, Colors.tealAccent),
+        _buildStatCard(
+          'Active Sukuks',
+          '12',
+          'Across 3 industries',
+          Icons.token,
+          AppTheme.primaryColor,
+        ),
+        _buildStatCard(
+          'Est. ROI (P.A)',
+          '14.5%',
+          'Weighted average',
+          Icons.insights,
+          Colors.tealAccent,
+        ),
       ],
     );
   }
 
-  Widget _buildStatCard(String title, String value, String subtitle, IconData icon, Color iconColor) {
+  Widget _buildStatCard(
+    String title,
+    String value,
+    String subtitle,
+    IconData icon,
+    Color iconColor,
+  ) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -300,12 +408,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             children: [
               Icon(icon, color: iconColor, size: 18),
               const SizedBox(width: 8),
-              Text(title, style: const TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w600)),
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 8),
-          Text(value, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 10)),
+          Text(
+            value,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            subtitle,
+            style: const TextStyle(color: Colors.grey, fontSize: 10),
+          ),
         ],
       ),
     );
@@ -324,7 +445,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Sector Diversification', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+              Text(
+                'Sector Diversification',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
               Icon(Icons.more_horiz, color: Colors.grey),
             ],
           ),
@@ -336,11 +460,19 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: const SweepGradient(
-                  colors: [AppTheme.primaryColor, Colors.tealAccent, AppTheme.primaryColor],
+                  colors: [
+                    AppTheme.primaryColor,
+                    Colors.tealAccent,
+                    AppTheme.primaryColor,
+                  ],
                   stops: [0.0, 0.65, 1.0],
                 ),
                 boxShadow: [
-                  BoxShadow(color: AppTheme.primaryColor.withOpacity(0.1), blurRadius: 40, spreadRadius: 0),
+                  BoxShadow(
+                    color: AppTheme.primaryColor.withOpacity(0.1),
+                    blurRadius: 40,
+                    spreadRadius: 0,
+                  ),
                 ],
               ),
               child: Center(
@@ -354,8 +486,21 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text('Sukuk Mix', style: TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.bold)),
-                      Text('Real Estate', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      Text(
+                        'Sukuk Mix',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Real Estate',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -363,7 +508,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          _buildDiversificationItem('Real Estate', '65%', AppTheme.primaryColor),
+          _buildDiversificationItem(
+            'Real Estate',
+            '65%',
+            AppTheme.primaryColor,
+          ),
           const SizedBox(height: 12),
           _buildDiversificationItem('Tech & Agri', '35%', Colors.tealAccent),
         ],
@@ -383,12 +532,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         children: [
           Row(
             children: [
-              Container(width: 12, height: 12, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
+              Container(
+                width: 12,
+                height: 12,
+                decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+              ),
               const SizedBox(width: 12),
-              Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ],
           ),
-          Text(percent, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+          Text(
+            percent,
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     );
@@ -402,36 +564,63 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
-            Text('Active Opportunities', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-            Text('See All', style: TextStyle(color: AppTheme.primaryColor, fontSize: 12, fontWeight: FontWeight.bold)),
+            Text(
+              'Active Opportunities',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+            Text(
+              'See All',
+              style: TextStyle(
+                color: AppTheme.primaryColor,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 16),
         assetsAsync.when(
           data: (assets) => Column(
-            children: assets.take(2).map((asset) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: _buildActivityItem(
-                asset.title,
-                'Available for Investment',
-                'KES ${asset.minInvestment.toInt()}',
-                'Min. Invest',
-                Icons.token,
-                AppTheme.primaryColor,
-              ),
-            )).toList(),
+            children: assets
+                .take(2)
+                .map(
+                  (asset) => Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: _buildActivityItem(
+                      asset.title,
+                      'Available for Investment',
+                      'KES ${asset.minInvestment.toInt()}',
+                      'Min. Invest',
+                      Icons.token,
+                      AppTheme.primaryColor,
+                    ),
+                  ),
+                )
+                .toList(),
           ),
-          loading: () => const Center(child: CircularProgressIndicator(color: AppTheme.goldColor)),
+          loading: () => const Center(
+            child: CircularProgressIndicator(color: AppTheme.goldColor),
+          ),
           error: (err, stack) => Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: Center(
               child: Column(
                 children: [
-                  const Text('Unable to connect to market feed.', style: TextStyle(color: Colors.white24, fontSize: 12)),
+                  const Text(
+                    'Unable to connect to market feed.',
+                    style: TextStyle(color: Colors.white24, fontSize: 12),
+                  ),
                   const SizedBox(height: 8),
                   TextButton(
                     onPressed: () => ref.refresh(assetsProvider),
-                    child: const Text('Tap to Retry', style: TextStyle(color: AppTheme.goldColor, fontWeight: FontWeight.bold, fontSize: 13)),
+                    child: const Text(
+                      'Tap to Retry',
+                      style: TextStyle(
+                        color: AppTheme.goldColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -442,7 +631,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     );
   }
 
-  Widget _buildActivityItem(String title, String subtitle, String amount, String status, IconData icon, Color iconColor) {
+  Widget _buildActivityItem(
+    String title,
+    String subtitle,
+    String amount,
+    String status,
+    IconData icon,
+    Color iconColor,
+  ) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -468,8 +664,17 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-                  Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 10)),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  Text(
+                    subtitle,
+                    style: const TextStyle(color: Colors.grey, fontSize: 10),
+                  ),
                 ],
               ),
             ],
@@ -477,8 +682,20 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(amount, style: TextStyle(color: amount.startsWith('+') ? AppTheme.primaryColor : Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
-              Text(status, style: const TextStyle(color: Colors.grey, fontSize: 10)),
+              Text(
+                amount,
+                style: TextStyle(
+                  color: amount.startsWith('+')
+                      ? AppTheme.primaryColor
+                      : Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              Text(
+                status,
+                style: const TextStyle(color: Colors.grey, fontSize: 10),
+              ),
             ],
           ),
         ],
@@ -501,13 +718,28 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppTheme.primaryColor,
         unselectedItemColor: Colors.grey,
-        selectedLabelStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-        unselectedLabelStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+        selectedLabelStyle: const TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+        ),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Dashboard'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: 'Dashboard',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Sukuks'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet), label: 'Wallet'),
-          BottomNavigationBarItem(icon: Icon(Icons.analytics), label: 'Analytics'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet),
+            label: 'Wallet',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.analytics),
+            label: 'Analytics',
+          ),
         ],
       ),
     );

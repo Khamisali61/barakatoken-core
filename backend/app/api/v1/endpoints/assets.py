@@ -28,6 +28,8 @@ def read_asset(
         raise HTTPException(status_code=404, detail="Asset not found")
     return asset
 
+from decimal import Decimal
+
 @router.post("/{asset_id}/invest")
 def invest_in_asset(
     asset_id: int,
@@ -39,15 +41,16 @@ def invest_in_asset(
     if not asset:
         raise HTTPException(status_code=404, detail="Asset not found")
 
-    if current_user.kes_balance < amount:
+    decimal_amount = Decimal(str(amount))
+    if current_user.kes_balance < decimal_amount:
         raise HTTPException(status_code=400, detail="Insufficient KES balance")
 
     # Deduct balance
-    current_user.kes_balance -= amount
+    current_user.kes_balance -= decimal_amount
 
     # Update Asset availability
     # Calculate tokens based on amount (1 token = 1 KES for simplicity in this vertical slice)
-    tokens_to_buy = amount
+    tokens_to_buy = decimal_amount
     if asset.available_tokens < tokens_to_buy:
          raise HTTPException(status_code=400, detail="Not enough tokens available")
 

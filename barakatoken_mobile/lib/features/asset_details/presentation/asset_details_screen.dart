@@ -11,7 +11,8 @@ class AssetDetailsScreen extends StatefulWidget {
   State<AssetDetailsScreen> createState() => _AssetDetailsScreenState();
 }
 
-class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTickerProviderStateMixin {
+class _AssetDetailsScreenState extends State<AssetDetailsScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -90,9 +91,15 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Returns Calendar', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const Text(
+          'Returns Calendar',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 8),
-        const Text('Projected monthly yield vs. Actual distributions', style: TextStyle(color: Colors.white30, fontSize: 12)),
+        const Text(
+          'Projected monthly yield vs. Actual distributions',
+          style: TextStyle(color: Colors.white30, fontSize: 12),
+        ),
         const SizedBox(height: 24),
         _buildReturnsCalendar(),
       ],
@@ -102,25 +109,46 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
   Widget _buildReturnsCalendar() {
     final months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     return Column(
-      children: months.map((month) => Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: PremiumCard(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(month, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              Row(
-                children: [
-                  _buildSmallReturnInfo('Projected', 'KES 1,250', Colors.white30),
-                  const SizedBox(width: 24),
-                  _buildSmallReturnInfo('Actual', month == 'May' ? 'KES 1,250' : '-', AppTheme.goldColor),
-                ],
+      children: months
+          .map(
+            (month) => Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: PremiumCard(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      month,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        _buildSmallReturnInfo(
+                          'Projected',
+                          'KES 1,250',
+                          Colors.white30,
+                        ),
+                        const SizedBox(width: 24),
+                        _buildSmallReturnInfo(
+                          'Actual',
+                          month == 'May' ? 'KES 1,250' : '-',
+                          AppTheme.goldColor,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
-      )).toList(),
+            ),
+          )
+          .toList(),
     );
   }
 
@@ -128,8 +156,22 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text(label, style: TextStyle(color: Colors.white24, fontSize: 10, fontWeight: FontWeight.bold)),
-        Text(value, style: TextStyle(color: color, fontWeight: FontWeight.w900, fontSize: 14)),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.white24,
+            fontSize: 10,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          value,
+          style: TextStyle(
+            color: color,
+            fontWeight: FontWeight.w900,
+            fontSize: 14,
+          ),
+        ),
       ],
     );
   }
@@ -138,15 +180,29 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Project Transparency', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const Text(
+          'Project Transparency',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 8),
-        const Text('Physical progress and fund utilization', style: TextStyle(color: Colors.white30, fontSize: 12)),
+        const Text(
+          'Physical progress and fund utilization',
+          style: TextStyle(color: Colors.white30, fontSize: 12),
+        ),
         const SizedBox(height: 32),
-        _buildTransparencyMetric('Construction Milestone', 0.65, '65% Complete'),
+        _buildTransparencyMetric(
+          'Construction Milestone',
+          0.65,
+          '65% Complete',
+        ),
         const SizedBox(height: 24),
         _buildTransparencyMetric('Fund Utilization', 0.785, '78.5% Utilized'),
         const SizedBox(height: 24),
-        _buildTransparencyMetric('Units Pre-sold', 142 / 200, '142 of 200 Units'),
+        _buildTransparencyMetric(
+          'Units Pre-sold',
+          142 / 200,
+          '142 of 200 Units',
+        ),
       ],
     );
   }
@@ -158,8 +214,18 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-            Text(value, style: const TextStyle(color: AppTheme.goldColor, fontWeight: FontWeight.bold, fontSize: 14)),
+            Text(
+              label,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+            ),
+            Text(
+              value,
+              style: const TextStyle(
+                color: AppTheme.goldColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 12),
@@ -200,11 +266,29 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(child: Text(widget.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900))),
+            Expanded(
+              child: Text(
+                widget.title,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(color: AppTheme.goldColor, borderRadius: BorderRadius.circular(8)),
-              child: const Text('12% p.a.', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.black)),
+              decoration: BoxDecoration(
+                color: AppTheme.goldColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
+                '12% p.a.',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),
@@ -237,7 +321,10 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
       children: [
         Text(label, style: const TextStyle(color: Colors.grey, fontSize: 12)),
         const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        Text(
+          value,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
       ],
     );
   }
@@ -246,7 +333,10 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
-        Text('About this Sukuk', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        Text(
+          'About this Sukuk',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         SizedBox(height: 12),
         Text(
           'Sustainable affordable housing project in Nairobi\'s Westlands area. Phase 1 includes 200 units with solar power and rain water harvesting. This Musharakah-based Sukuk allows investors to share in the rental income and capital appreciation of the property.',
@@ -260,7 +350,10 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Legal Documents', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const Text(
+          'Legal Documents',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 16),
         _buildDocItem('Offering Memorandum', 'PDF • 2.4 MB'),
         const SizedBox(height: 12),
@@ -273,7 +366,10 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
     return InkWell(
       onTap: () {
         if (title.contains('Shariah')) {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => const ShariahProfileScreen()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const ShariahProfileScreen()),
+          );
         }
       },
       child: Container(
@@ -285,14 +381,25 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
         ),
         child: Row(
           children: [
-            Icon(Icons.description, color: title.contains('Shariah') ? AppTheme.goldColor : Colors.redAccent),
+            Icon(
+              Icons.description,
+              color: title.contains('Shariah')
+                  ? AppTheme.goldColor
+                  : Colors.redAccent,
+            ),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  Text(size, style: const TextStyle(color: Colors.white30, fontSize: 12)),
+                  Text(
+                    title,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    size,
+                    style: const TextStyle(color: Colors.white30, fontSize: 12),
+                  ),
                 ],
               ),
             ),
@@ -319,7 +426,14 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
       children: [
         Icon(icon, color: AppTheme.primaryColor.withOpacity(0.5), size: 32),
         const SizedBox(height: 8),
-        Text(label, style: const TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold)),
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 10,
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }
@@ -338,8 +452,22 @@ class _AssetDetailsScreenState extends State<AssetDetailsScreen> with SingleTick
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Total to Invest', style: TextStyle(color: Colors.white30, fontSize: 12, fontWeight: FontWeight.bold)),
-                Text('KES 5,000.00', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: AppTheme.goldColor)),
+                Text(
+                  'Total to Invest',
+                  style: TextStyle(
+                    color: Colors.white30,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'KES 5,000.00',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: AppTheme.goldColor,
+                  ),
+                ),
               ],
             ),
           ),

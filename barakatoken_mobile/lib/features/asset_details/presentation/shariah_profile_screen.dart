@@ -9,7 +9,10 @@ class ShariahProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Shariah Profile', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: const Text(
+          'Shariah Profile',
+          style: TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
@@ -18,7 +21,10 @@ class ShariahProfileScreen extends StatelessWidget {
           children: [
             _buildCertificateScan(),
             const SizedBox(height: 32),
-            const Text('Fatwa Summary', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text(
+              'Fatwa Summary',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 16),
             _buildFatwaContent(),
             const SizedBox(height: 32),
@@ -38,15 +44,23 @@ class ShariahProfileScreen extends StatelessWidget {
             height: 400,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(24),
+              ),
               image: const DecorationImage(
-                image: NetworkImage('https://barakatoken.com/docs/nairobi-shariah-highres.jpg'),
+                image: NetworkImage(
+                  'https://barakatoken.com/docs/nairobi-shariah-highres.jpg',
+                ),
                 fit: BoxFit.cover,
                 opacity: 0.1, // Mocking high-fidelity scan
               ),
             ),
             child: const Center(
-              child: Icon(Icons.verified_user_outlined, size: 80, color: AppTheme.primaryColor),
+              child: Icon(
+                Icons.verified_user_outlined,
+                size: 80,
+                color: AppTheme.primaryColor,
+              ),
             ),
           ),
           Container(
@@ -58,11 +72,29 @@ class ShariahProfileScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Certificate #BT-2023-001', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
+                const Text(
+                  'Certificate #BT-2023-001',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
                 TextButton.icon(
                   onPressed: () {},
-                  icon: const Icon(Icons.download, size: 16, color: AppTheme.primaryColor),
-                  label: const Text('Download PDF', style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold, fontSize: 12)),
+                  icon: const Icon(
+                    Icons.download,
+                    size: 16,
+                    color: AppTheme.primaryColor,
+                  ),
+                  label: const Text(
+                    'Download PDF',
+                    style: TextStyle(
+                      color: AppTheme.primaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -98,14 +130,25 @@ class ShariahProfileScreen extends StatelessWidget {
           width: 100,
           height: 60,
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppTheme.goldColor.withOpacity(0.3))),
+            border: Border(
+              bottom: BorderSide(color: AppTheme.goldColor.withOpacity(0.3)),
+            ),
           ),
           child: Center(
-            child: Text(name.split(' ').last, style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.white30)),
+            child: Text(
+              name.split(' ').last,
+              style: const TextStyle(
+                fontStyle: FontStyle.italic,
+                color: Colors.white30,
+              ),
+            ),
           ),
         ),
         const SizedBox(height: 8),
-        Text(name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+        Text(
+          name,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+        ),
         Text(role, style: const TextStyle(color: Colors.white30, fontSize: 10)),
       ],
     );

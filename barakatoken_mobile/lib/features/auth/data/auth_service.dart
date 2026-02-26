@@ -13,10 +13,7 @@ class AuthService {
     try {
       final response = await _dio.post(
         '/auth/login/access-token',
-        data: FormData.fromMap({
-          'username': email,
-          'password': password,
-        }),
+        data: FormData.fromMap({'username': email, 'password': password}),
       );
 
       if (response.statusCode == 200) {
@@ -62,8 +59,10 @@ class AuthService {
   }
 
   Future<bool> canUseBiometrics() async {
-    final bool canAuthenticateWithBiometrics = await _localAuth.canCheckBiometrics;
-    final bool canAuthenticate = canAuthenticateWithBiometrics || await _localAuth.isDeviceSupported();
+    final bool canAuthenticateWithBiometrics =
+        await _localAuth.canCheckBiometrics;
+    final bool canAuthenticate =
+        canAuthenticateWithBiometrics || await _localAuth.isDeviceSupported();
     return canAuthenticate;
   }
 
@@ -90,7 +89,10 @@ class AuthService {
   }
 
   Future<void> setBiometricsEnabled(bool enabled) async {
-    await _secureStorage.write(key: 'biometrics_enabled', value: enabled.toString());
+    await _secureStorage.write(
+      key: 'biometrics_enabled',
+      value: enabled.toString(),
+    );
   }
 
   Future<bool> isBiometricsEnabled() async {

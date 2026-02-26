@@ -11,21 +11,23 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          assetsProvider.overrideWith((ref) => [
-            SukukAsset(
-              id: 1,
-              title: 'Test Asset',
-              description: 'Description',
-              location: 'Location',
-              totalValuation: 1000,
-              totalTokens: 100,
-              availableTokens: 50,
-              minInvestment: 10,
-              expectedIrr: 0.12,
-              distributionCycle: 'Monthly',
-              riskLevel: 'Low',
-            ),
-          ]),
+          assetsProvider.overrideWith(
+            (ref) => [
+              SukukAsset(
+                id: 1,
+                title: 'Test Asset',
+                description: 'Description',
+                location: 'Location',
+                totalValuation: 1000,
+                totalTokens: 100,
+                availableTokens: 50,
+                minInvestment: 10,
+                expectedIrr: 0.12,
+                distributionCycle: 'Monthly',
+                riskLevel: 'Low',
+              ),
+            ],
+          ),
         ],
         child: const BarakaTokenApp(),
       ),

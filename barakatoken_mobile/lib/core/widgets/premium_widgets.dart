@@ -21,7 +21,9 @@ class PremiumCard extends StatelessWidget {
         color: AppTheme.glassCardColor,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: hasGoldBorder ? AppTheme.goldColor.withOpacity(0.3) : Colors.white10,
+          color: hasGoldBorder
+              ? AppTheme.goldColor.withOpacity(0.3)
+              : Colors.white10,
           width: 1,
         ),
       ),
@@ -35,12 +37,7 @@ class GoldButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final IconData? icon;
 
-  const GoldButton({
-    super.key,
-    required this.label,
-    this.onPressed,
-    this.icon,
-  });
+  const GoldButton({super.key, required this.label, this.onPressed, this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +53,7 @@ class GoldButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (icon != null) ...[
-            Icon(icon, size: 20),
-            const SizedBox(width: 8),
-          ],
+          if (icon != null) ...[Icon(icon, size: 20), const SizedBox(width: 8)],
           Text(
             label,
             style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
