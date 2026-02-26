@@ -45,6 +45,29 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     }
   }
 
+  Future<void> _handleLogin() async {
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter both email and password')),
+      );
+      return;
+    }
+
+    final success = await ref.read(authProvider.notifier).login(
+      _emailController.text,
+      _passwordController.text,
+    );
+
+    if (success && mounted) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const DashboardScreen()));
+    } else if (mounted) {
+      final error = ref.read(authProvider).error;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error ?? 'Login failed')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,27 +113,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(height: 48),
               GoldButton(
                 label: ref.watch(authProvider).status == AuthStatus.loading ? 'Signing In...' : 'Sign In',
-                onPressed: ref.watch(authProvider).status == AuthStatus.loading ? null : () async {
-                  if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Please enter both email and password')),
-                    );
-                    return;
-                  }
-
-                  final success = await ref.read(authProvider.notifier).login(
-                    _emailController.text,
-                    _passwordController.text,
-                  );
-
-                  if (success && mounted) {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const DashboardScreen()));
-                  } else if (mounted) {
-                    final error = ref.read(authProvider).error;
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(error ?? 'Login failed')),
-                    );
-                  }
+                onPressed: ref.watch(authProvider).status == AuthStatus.loading ? null : () {
+                   _handleLogin();
                 },
               ),
               if (_showBiometrics) ...[

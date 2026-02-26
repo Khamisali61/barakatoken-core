@@ -19,6 +19,30 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  Future<void> _handleRegister() async {
+    if (_formKey.currentState!.validate()) {
+      final success = await ref.read(authProvider.notifier).register(
+        email: _emailController.text,
+        password: _passwordController.text,
+        fullName: _fullNameController.text,
+        phoneNumber: _phoneController.text,
+      );
+
+      if (success && mounted) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => const DashboardScreen()),
+          (route) => false,
+        );
+      } else if (mounted) {
+        final error = ref.read(authProvider).error;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(error ?? 'Registration failed')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,28 +70,8 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
               const SizedBox(height: 48),
               GoldButton(
                 label: ref.watch(authProvider).status == AuthStatus.loading ? 'Creating Account...' : 'Sign Up',
-                onPressed: ref.watch(authProvider).status == AuthStatus.loading ? null : () async {
-                  if (_formKey.currentState!.validate()) {
-                    final success = await ref.read(authProvider.notifier).register(
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                      fullName: _fullNameController.text,
-                      phoneNumber: _phoneController.text,
-                    );
-
-                    if (success && mounted) {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (_) => const DashboardScreen()),
-                        (route) => false,
-                      );
-                    } else if (mounted) {
-                      final error = ref.read(authProvider).error;
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(error ?? 'Registration failed')),
-                      );
-                    }
-                  }
+                onPressed: ref.watch(authProvider).status == AuthStatus.loading ? null : () {
+                  _handleRegister();
                 },
               ),
               const SizedBox(height: 24),

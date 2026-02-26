@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:barakatoken_mobile/features/auth/data/auth_service.dart';
+import 'package:barakatoken_mobile/features/dashboard/data/user_provider.dart';
 
 enum AuthStatus { authenticated, unauthenticated, loading }
 
@@ -9,8 +10,6 @@ class AuthState {
 
   AuthState({required this.status, this.error});
 }
-
-import 'package:barakatoken_mobile/features/dashboard/data/user_provider.dart';
 
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthService _authService;
