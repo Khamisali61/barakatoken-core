@@ -1,0 +1,18 @@
+from sqlalchemy import Column, Integer, String, Boolean, Numeric
+from app.db.session import Base
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    full_name = Column(String, index=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    phone_number = Column(String, unique=True, index=True, nullable=True)
+    hashed_password = Column(String, nullable=False)
+    is_active = Column(Boolean(), default=True)
+    is_verified = Column(Boolean(), default=False)
+    is_admin = Column(Boolean(), default=False)
+    wallet_address = Column(String, unique=True, index=True, nullable=True)
+    kes_balance = Column(Numeric(18, 4), default=0.0000)
+    usd_balance = Column(Numeric(18, 4), default=0.0000)
+    kyc_status = Column(String, default="Pending") # Pending, Verified, Rejected

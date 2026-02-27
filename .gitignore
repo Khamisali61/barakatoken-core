@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.env
+
+# Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+*.lock
+*.js
+*.exe
+
+# Node
+node_modules/
+dist/
+.eslintcache
+
+# OS
+.DS_Store
+Thumbs.db
